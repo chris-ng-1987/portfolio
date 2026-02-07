@@ -44,7 +44,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe project cards and skill categories
-document.querySelectorAll('.project-card, .skill-category, .highlight').forEach(el => {
+document.querySelectorAll('.project-card, .skill-category, .highlight, .publication-card, .award-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
