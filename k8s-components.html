@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes Components | Chris Ng</title>
+    <meta name="description" content="Kubernetes system components and tools I use for production clusters - monitoring, service mesh, security, GitOps, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="k8s-components.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⎈</span>
+                <span class="logo-text">chris.ng</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="devops-lifecycle.html">DevOps Cycle</a></li>
+                <li><a href="workflow.html">Workflow</a></li>
+                <li><a href="pipeline.html">CI/CD Pipeline</a></li>
+                <li><a href="argocd.html">ArgoCD GitOps</a></li>
+                <li><a href="k8s-components.html">K8s Components</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="k8s-hero">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Infrastructure</span>
+                <h1 class="section-title">Kubernetes Components</h1>
+                <p class="section-description">
+                    A complete view of the system tools, CNCF projects, and components 
+                    I deploy and manage in production Kubernetes clusters.
+                </p>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <span class="stat-icon">☸️</span>
+                    <span class="stat-value">30+</span>
+                    <span class="stat-label">Components</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">🏛️</span>
+                    <span class="stat-value">CNCF</span>
+                    <span class="stat-label">Cloud Native</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">☁️</span>
+                    <span class="stat-value">Multi-Cloud</span>
+                    <span class="stat-label">AWS & Alibaba</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Grid -->
+    <section class="components-section">
+        <div class="container">
+            
+            <!-- GitOps & Deployment -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">🔄</span>
+                    <div class="category-info">
+                        <h2>GitOps & Deployment</h2>
+                        <p>Declarative, Git-driven continuous delivery</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card featured">
+                        <div class="component-logo">
+                            <img src="https://argo-cd.readthedocs.io/en/stable/assets/logo.png" alt="ArgoCD" onerror="this.parentElement.innerHTML='🔄'">
+                        </div>
+                        <div class="component-info">
+                            <h3>ArgoCD</h3>
+                            <span class="component-badge cncf">CNCF</span>
+                        </div>
+                        <p class="component-desc">GitOps continuous delivery for Kubernetes. Syncs cluster state from Git repositories.</p>
+                        <div class="component-features">
+                            <span>Auto-sync</span>
+                            <span>Health monitoring</span>
+                            <span>Rollback</span>
+                        </div>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">⎈</div>
+                        <div class="component-info">
+                            <h3>Helm</h3>
+                            <span class="component-badge cncf">CNCF</span>
+                        </div>
+                        <p class="component-desc">Kubernetes package manager for templating and managing application charts.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">📦</div>
+                        <div class="component-info">
+                            <h3>Kustomize</h3>
+                            <span class="component-badge native">Native</span>
+                        </div>
+                        <p class="component-desc">Template-free customization of Kubernetes manifests.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monitoring & Observability -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">📊</span>
+                    <div class="category-info">
+                        <h2>Monitoring & Observability</h2>
+                        <p>Metrics, logging, tracing, and alerting</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card featured">
+                        <div class="component-logo">🔥</div>
+                        <div class="component-info">
+                            <h3>Prometheus</h3>
+                            <span class="component-badge cncf">CNCF Graduated</span>
+                        </div>
+                        <p class="component-desc">Time-series metrics collection with powerful PromQL query language.</p>
+                        <div class="component-features">
+                            <span>Alerting</span>
+                            <span>Service discovery</span>
+                            <span>Multi-target</span>
+                        </div>
+                    </div>
+                    <div class="component-card featured">
+                        <div class="component-logo">📊</div>
+                        <div class="component-info">
+                            <h3>Thanos</h3>
+                            <span class="component-badge cncf">CNCF Incubating</span>
+                        </div>
+                        <p class="component-desc">Highly available Prometheus with long-term storage and global query view.</p>
+                        <div class="component-features">
+                            <span>Store Gateway</span>
+                            <span>Compactor</span>
+                            <span>Query</span>
+                        </div>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">📈</div>
+                        <div class="component-info">
+                            <h3>Grafana</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">Visualization and dashboarding for metrics and logs.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🔭</div>
+                        <div class="component-info">
+                            <h3>Jaeger</h3>
+                            <span class="component-badge cncf">CNCF Graduated</span>
+                        </div>
+                        <p class="component-desc">Distributed tracing for microservices architectures.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">📉</div>
+                        <div class="component-info">
+                            <h3>kube-state-metrics</h3>
+                            <span class="component-badge native">Native</span>
+                        </div>
+                        <p class="component-desc">Exposes Kubernetes object states as Prometheus metrics.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🔥</div>
+                        <div class="component-info">
+                            <h3>Pyroscope</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">Continuous profiling for performance analysis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Mesh -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">🕸️</span>
+                    <div class="category-info">
+                        <h2>Service Mesh</h2>
+                        <p>Traffic management, security, and observability</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card featured">
+                        <div class="component-logo">🔗</div>
+                        <div class="component-info">
+                            <h3>Linkerd</h3>
+                            <span class="component-badge cncf">CNCF Graduated</span>
+                        </div>
+                        <p class="component-desc">Ultralight service mesh with automatic mTLS, observability, and reliability.</p>
+                        <div class="component-features">
+                            <span>mTLS</span>
+                            <span>Traffic split</span>
+                            <span>Retries</span>
+                        </div>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">📊</div>
+                        <div class="component-info">
+                            <h3>Linkerd Viz</h3>
+                            <span class="component-badge cncf">CNCF</span>
+                        </div>
+                        <p class="component-desc">Dashboard and metrics visualization for Linkerd service mesh.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">🔐</span>
+                    <div class="category-info">
+                        <h2>Security</h2>
+                        <p>Secrets management, policy enforcement, and runtime security</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card featured">
+                        <div class="component-logo">🔑</div>
+                        <div class="component-info">
+                            <h3>HashiCorp Vault</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">Dynamic secrets management, encryption as a service, and identity-based access.</p>
+                        <div class="component-features">
+                            <span>Dynamic secrets</span>
+                            <span>PKI</span>
+                            <span>Encryption</span>
+                        </div>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">💉</div>
+                        <div class="component-info">
+                            <h3>Vault Secrets Webhook</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">Mutating webhook to inject Vault secrets into pods.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🛡️</div>
+                        <div class="component-info">
+                            <h3>OPA Gatekeeper</h3>
+                            <span class="component-badge cncf">CNCF Graduated</span>
+                        </div>
+                        <p class="component-desc">Policy enforcement using Open Policy Agent for Kubernetes.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🔒</div>
+                        <div class="component-info">
+                            <h3>Twistlock / Prisma Cloud</h3>
+                            <span class="component-badge commercial">Commercial</span>
+                        </div>
+                        <p class="component-desc">Container runtime security and vulnerability management.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🎫</div>
+                        <div class="component-info">
+                            <h3>cert-manager</h3>
+                            <span class="component-badge cncf">CNCF Incubating</span>
+                        </div>
+                        <p class="component-desc">Automated TLS certificate management for Kubernetes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Networking & Ingress -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">🌐</span>
+                    <div class="category-info">
+                        <h2>Networking & Ingress</h2>
+                        <p>Traffic routing, load balancing, and network policies</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card featured">
+                        <div class="component-logo">🚪</div>
+                        <div class="component-info">
+                            <h3>NGINX Ingress Controller</h3>
+                            <span class="component-badge native">Native</span>
+                        </div>
+                        <p class="component-desc">Production-grade ingress controller for routing external traffic.</p>
+                        <div class="component-features">
+                            <span>TLS termination</span>
+                            <span>Rate limiting</span>
+                            <span>Auth</span>
+                        </div>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🔌</div>
+                        <div class="component-info">
+                            <h3>CoreDNS</h3>
+                            <span class="component-badge cncf">CNCF Graduated</span>
+                        </div>
+                        <p class="component-desc">Flexible, extensible DNS server for Kubernetes service discovery.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🕸️</div>
+                        <div class="component-info">
+                            <h3>Flannel</h3>
+                            <span class="component-badge cncf">CNCF</span>
+                        </div>
+                        <p class="component-desc">Simple overlay network for Kubernetes pod networking.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serverless -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">⚡</span>
+                    <div class="category-info">
+                        <h2>Serverless</h2>
+                        <p>Functions as a Service on Kubernetes</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card featured">
+                        <div class="component-logo">⚡</div>
+                        <div class="component-info">
+                            <h3>Fission</h3>
+                            <span class="component-badge cncf">CNCF Sandbox</span>
+                        </div>
+                        <p class="component-desc">Fast serverless functions for Kubernetes with cold start optimization.</p>
+                        <div class="component-features">
+                            <span>Multi-language</span>
+                            <span>Triggers</span>
+                            <span>Workflows</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cluster Operations -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">⚙️</span>
+                    <div class="category-info">
+                        <h2>Cluster Operations</h2>
+                        <p>Scaling, backup, and cluster management</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card">
+                        <div class="component-logo">📏</div>
+                        <div class="component-info">
+                            <h3>Cluster Autoscaler</h3>
+                            <span class="component-badge native">Native</span>
+                        </div>
+                        <p class="component-desc">Automatically adjusts cluster size based on resource demands.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">📐</div>
+                        <div class="component-info">
+                            <h3>Metrics Server</h3>
+                            <span class="component-badge native">Native</span>
+                        </div>
+                        <p class="component-desc">Resource metrics for HPA and VPA scaling decisions.</p>
+                    </div>
+                    <div class="component-card featured">
+                        <div class="component-logo">💾</div>
+                        <div class="component-info">
+                            <h3>Velero</h3>
+                            <span class="component-badge cncf">CNCF Sandbox</span>
+                        </div>
+                        <p class="component-desc">Backup and restore for Kubernetes resources and persistent volumes.</p>
+                        <div class="component-features">
+                            <span>Scheduled backups</span>
+                            <span>Disaster recovery</span>
+                            <span>Migration</span>
+                        </div>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🗄️</div>
+                        <div class="component-info">
+                            <h3>CSI Drivers</h3>
+                            <span class="component-badge native">Native</span>
+                        </div>
+                        <p class="component-desc">Container Storage Interface for cloud-native persistent storage.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container Registry -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">🐳</span>
+                    <div class="category-info">
+                        <h2>Container Registry</h2>
+                        <p>Image storage and distribution</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card">
+                        <div class="component-logo">🏭</div>
+                        <div class="component-info">
+                            <h3>Docker Registry</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">Private container registry for internal image distribution.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🔑</div>
+                        <div class="component-info">
+                            <h3>Registry Creds</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">Automatically manages image pull secrets across namespaces.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data & Storage -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">💿</span>
+                    <div class="category-info">
+                        <h2>Data & Storage</h2>
+                        <p>Databases and distributed storage</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card featured">
+                        <div class="component-logo">🗄️</div>
+                        <div class="component-info">
+                            <h3>Rook Ceph</h3>
+                            <span class="component-badge cncf">CNCF Graduated</span>
+                        </div>
+                        <p class="component-desc">Cloud-native storage orchestrator for Kubernetes. Provides distributed block, file, and object storage.</p>
+                        <div class="component-features">
+                            <span>Block storage</span>
+                            <span>Shared FS</span>
+                            <span>S3 Object</span>
+                        </div>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🐬</div>
+                        <div class="component-info">
+                            <h3>MySQL / PostgreSQL / MongoDB</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">Relational and NoSQL databases managed via Helm or Operators for production persistence.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🚀</div>
+                        <div class="component-info">
+                            <h3>Redis</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">In-memory data structure store used as a database, cache, and message broker.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">⚡</div>
+                        <div class="component-info">
+                            <h3>Varnish Cache</h3>
+                            <span class="component-badge oss">OSS</span>
+                        </div>
+                        <p class="component-desc">High-performance HTTP accelerator for caching content at the edge.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🛋️</div>
+                        <div class="component-info">
+                            <h3>Couchbase</h3>
+                            <span class="component-badge commercial">Commercial</span>
+                        </div>
+                        <p class="component-desc">Distributed NoSQL database for high-performance applications.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🗃️</div>
+                        <div class="component-info">
+                            <h3>Consul</h3>
+                            <span class="component-badge oss">HashiCorp</span>
+                        </div>
+                        <p class="component-desc">Service discovery, configuration, and KV store.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CNCF Landscape -->
+    <section class="cncf-section">
+        <div class="container">
+            <div class="cncf-content">
+                <div class="cncf-logo">
+                    <img src="https://www.cncf.io/wp-content/uploads/2022/07/cncf-color-bg.svg" alt="CNCF" onerror="this.style.display='none'">
+                </div>
+                <div class="cncf-info">
+                    <h2>Cloud Native Foundation</h2>
+                    <p>
+                        My infrastructure stack is built primarily on <strong>CNCF projects</strong>, ensuring 
+                        cloud-agnostic portability and community-backed reliability. From Kubernetes itself 
+                        to Prometheus, ArgoCD, and Linkerd — these battle-tested projects form the backbone 
+                        of modern cloud-native architectures.
+                    </p>
+                    <div class="cncf-badges">
+                        <span class="badge graduated">Graduated Projects: 6</span>
+                        <span class="badge incubating">Incubating: 3</span>
+                        <span class="badge sandbox">Sandbox: 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Want to see how it all connects?</h2>
+                <p>Explore the complete DevOps workflow</p>
+                <div class="cta-buttons">
+                    <a href="argocd.html" class="btn btn-primary">
+                        <span>View ArgoCD GitOps</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="workflow.html" class="btn btn-secondary">View Workflow</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Chris Ng. Built with passion for infrastructure.</p>
+        </div>
+    </footer>
+
+    <script src="k8s-components.js"></script>
+</body>
+</html>

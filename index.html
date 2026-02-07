@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Ng | DevOps Engineer</title>
+    <meta name="description" content="DevOps Engineer specializing in Kubernetes, GitOps, CI/CD pipelines, and cloud infrastructure on Alibaba Cloud.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">⎈</span>
+                <span class="logo-text">chris.ng</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="devops-lifecycle.html">DevOps Cycle</a></li>
+                <li><a href="workflow.html">Workflow</a></li>
+                <li><a href="pipeline.html">CI/CD Pipeline</a></li>
+                <li><a href="argocd.html">ArgoCD GitOps</a></li>
+                <li><a href="k8s-components.html">K8s Components</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Available for opportunities
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">DevOps Engineer</span>
+                <span class="title-gradient">Building Infrastructure at Scale</span>
+            </h1>
+            <p class="hero-description">
+                I architect and automate cloud infrastructure, design CI/CD pipelines, 
+                and implement GitOps workflows. Specialized in Kubernetes, Terraform, 
+                and cloud-agnostic CNCF technologies.
+            </p>
+            <div class="hero-badges">
+                <span class="cloud-badge">☁️ Cloud Agnostic</span>
+                <span class="cloud-badge">⚙️ CNCF Cloud Native</span>
+            </div>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <span>View Projects</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">20+</span>
+                    <span class="stat-label">CI Templates</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">K8s</span>
+                    <span class="stat-label">Production Clusters</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">GitOps</span>
+                    <span class="stat-label">ArgoCD Workflows</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span class="terminal-title">kubectl — bash</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">kubectl get pods -n production</span>
+                    </div>
+                    <div class="terminal-output">
+NAME                        READY   STATUS    RESTARTS
+api-gateway-7d8f9c6b5-x2k   1/1     Running   0
+auth-service-5c4d3b2a1-m9n  1/1     Running   0
+frontend-8e7f6d5c4-q3w      1/1     Running   0
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command">argocd app sync production-app</span>
+                    </div>
+                    <div class="terminal-output success">
+✓ Application synced successfully
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="cursor">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Engineering Reliable Systems</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a DevOps Engineer passionate about building scalable, reliable infrastructure 
+                        using <strong>CNCF cloud-native</strong> technologies. I focus on <strong>cloud-agnostic</strong> 
+                        solutions that avoid vendor lock-in while maximizing portability and flexibility.
+                    </p>
+                    <p>
+                        I've designed and implemented GitOps workflows using ArgoCD, built reusable 
+                        CI/CD templates that accelerate team productivity, and managed Kubernetes 
+                        clusters across AWS and Alibaba Cloud serving production workloads.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <div class="highlight-icon">🐳</div>
+                            <div class="highlight-content">
+                                <h4>Local Dev Support</h4>
+                                <p>Docker Compose for local, seamless K8s transition</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-icon">🚀</div>
+                            <div class="highlight-content">
+                                <h4>CI/CD Automation</h4>
+                                <p>Reusable pipeline templates with GitLab CI</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-icon">☸️</div>
+                            <div class="highlight-content">
+                                <h4>Kubernetes</h4>
+                                <p>Production clusters on Alibaba Cloud</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-icon">🔄</div>
+                            <div class="highlight-content">
+                                <h4>GitOps</h4>
+                                <p>ArgoCD-driven deployments with Terraform</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    Real-world infrastructure and DevOps implementations
+                </p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: CI Templates -->
+                <article class="project-card featured">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">GitLab CI</span>
+                            <span class="tag">YAML</span>
+                            <span class="tag">DevOps</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">CI/CD Template Library</h3>
+                    <p class="project-description">
+                        A comprehensive library of reusable GitLab CI templates for accelerating 
+                        project setup. Includes templates for Node.js, Go, security scanning, 
+                        Kaniko builds, ArgoCD deployments, and more.
+                    </p>
+                    <div class="project-features">
+                        <div class="feature">
+                            <span class="feature-label">Templates</span>
+                            <span class="feature-value">20+</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-label">Categories</span>
+                            <span class="feature-value">Build, Test, Deploy, Security</span>
+                        </div>
+                    </div>
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <span class="code-file">argocd-deploy.yml</span>
+                        </div>
+                        <pre class="code-block"><code><span class="code-key">.argocd-dev-deploy</span>:
+  <span class="code-key">stage</span>: deploy
+  <span class="code-key">variables</span>:
+    <span class="code-key">ARGOCD_SERVER</span>: <span class="code-var">$DEV_ARGOCD_SERVER</span>
+    <span class="code-key">ARGOCD_SYNC_TIMEOUT</span>: <span class="code-num">600</span>
+  <span class="code-key">script</span>:
+    - argocd app sync <span class="code-var">$APP_NAME</span> --grpc-web
+    - argocd app wait <span class="code-var">$APP_NAME</span> --timeout <span class="code-var">$TIMEOUT</span></code></pre>
+                    </div>
+                </article>
+
+                <!-- Project 2: Alibaba Kubernetes -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">Alibaba Cloud</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Alibaba Cloud Kubernetes</h3>
+                    <p class="project-description">
+                        Production Kubernetes cluster configurations for Alibaba Cloud (Aliyun). 
+                        Includes ArgoCD applications, Helm deployments, and cluster management scripts.
+                    </p>
+                    <div class="project-features">
+                        <div class="feature">
+                            <span class="feature-label">Components</span>
+                            <span class="feature-value">ArgoCD, Helm, Deploy Scripts</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: GitOps Infrastructure -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Terraform</span>
+                            <span class="tag">GitOps</span>
+                            <span class="tag">Vault</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Infrastructure as Code</h3>
+                    <p class="project-description">
+                        Terraform modules for Alibaba Cloud infrastructure with GitOps-driven 
+                        deployments. Includes multi-environment support, Cloudflare integration, 
+                        and HashiCorp Vault for secrets management.
+                    </p>
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <span class="code-file">Folder Structure</span>
+                        </div>
+                        <pre class="code-block"><code><span class="code-comment">├── environments/</span>   <span class="code-dim"># env-specific vars</span>
+<span class="code-comment">├── modules/</span>        <span class="code-dim"># reusable modules</span>
+<span class="code-comment">└── providers/</span>      <span class="code-dim"># cloud clusters</span></code></pre>
+                    </div>
+                </article>
+
+                <!-- Project 4: Documentation Platform -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Hugo</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">K8s</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Product Handbook</h3>
+                    <p class="project-description">
+                        Internal documentation platform built with Hugo, containerized with Docker, 
+                        and deployed to Kubernetes. Features GitLab CI/CD pipeline and automated deployments.
+                    </p>
+                    <div class="project-features">
+                        <div class="feature">
+                            <span class="feature-label">Stack</span>
+                            <span class="feature-value">Hugo + Docker + K8s</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5: ArgoCD GitOps -->
+                <article class="project-card featured">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 4v16a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2z"/>
+                                <path d="M8 12h8"/>
+                                <path d="M12 8v8"/>
+                            </svg>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">ArgoCD</span>
+                            <span class="tag">GitOps</span>
+                            <span class="tag">Kubernetes</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">GitOps Delivery Platform</h3>
+                    <p class="project-description">
+                        Enterprise-scale GitOps implementation using ArgoCD. Managing multi-environment 
+                        Kubernetes deployments with automated sync, self-healing, and drift detection.
+                    </p>
+                    <div class="project-features">
+                        <div class="feature">
+                            <span class="feature-label">Applications</span>
+                            <span class="feature-value">50+</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-label">Clusters</span>
+                            <span class="feature-value">Multi-Cloud</span>
+                        </div>
+                    </div>
+                    <div class="hero-cta" style="margin-top: var(--space-4);">
+                        <a href="argocd.html" class="btn btn-primary btn-sm" style="padding: var(--space-2) var(--space-4); font-size: var(--text-xs);">
+                            <span>View ArgoCD Details</span>
+                            <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">☸️</span>
+                        Container Orchestration
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-item">Kubernetes</div>
+                        <div class="skill-item">Helm</div>
+                        <div class="skill-item">ArgoCD</div>
+                        <div class="skill-item">Docker</div>
+                        <div class="skill-item">Kaniko</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">🔧</span>
+                        CI/CD & Automation
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-item">GitLab CI</div>
+                        <div class="skill-item">GitHub Actions</div>
+                        <div class="skill-item">Jenkins</div>
+                        <div class="skill-item">Buildah</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">☁️</span>
+                        Cloud & Infrastructure
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-item">AWS</div>
+                        <div class="skill-item">Alibaba Cloud</div>
+                        <div class="skill-item">Terraform</div>
+                        <div class="skill-item">Cloudflare</div>
+                        <div class="skill-item">Fission (FaaS)</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">💾</span>
+                        Data & Storage
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-item">MySQL</div>
+                        <div class="skill-item">PostgreSQL</div>
+                        <div class="skill-item">MongoDB</div>
+                        <div class="skill-item">Redis</div>
+                        <div class="skill-item">Varnish cache</div>
+                        <div class="skill-item">Rook Ceph</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">🔐</span>
+                        Security & Secrets
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-item">HashiCorp Vault</div>
+                        <div class="skill-item">git-crypt</div>
+                        <div class="skill-item">SAST</div>
+                        <div class="skill-item">Burp Suite</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">🧪</span>
+                        Testing & Quality
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-item">CodeQL</div>
+                        <div class="skill-item">Selenium</div>
+                        <div class="skill-item">Lighthouse</div>
+                        <div class="skill-item">BackstopJS</div>
+                        <div class="skill-item">ESLint</div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="skill-icon">📝</span>
+                        Languages & Tools
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-item">YAML</div>
+                        <div class="skill-item">Bash</div>
+                        <div class="skill-item">Go</div>
+                        <div class="skill-item">Node.js</div>
+                        <div class="skill-item">Make</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="section-header">
+                    <span class="section-tag">Contact</span>
+                    <h2 class="section-title">Let's Work Together</h2>
+                    <p class="section-description">
+                        Interested in collaborating or have a project in mind? 
+                        I'd love to hear from you.
+                    </p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:chris@frwonline.com" class="contact-link">
+                        <span class="contact-icon">📧</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://github.com/chris-ng-1987" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/chris-ng-1987" target="_blank" rel="noopener" class="contact-link">
+                        <span class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </span>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Chris Ng. Built with passion for infrastructure.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArgoCD GitOps | Chris Ng</title>
+    <meta name="description" content="Declarative continuous delivery and GitOps workflows using ArgoCD. Managing multi-cluster, multi-environment Kubernetes deployments at scale.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="argocd.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⎈</span>
+                <span class="logo-text">chris.ng</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="devops-lifecycle.html">DevOps Cycle</a></li>
+                <li><a href="workflow.html">Workflow</a></li>
+                <li><a href="pipeline.html">CI/CD Pipeline</a></li>
+                <li><a href="argocd.html">ArgoCD GitOps</a></li>
+                <li><a href="k8s-components.html">K8s Components</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="argocd-hero">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Continuous Delivery</span>
+                <h1 class="section-title">GitOps with ArgoCD</h1>
+                <p class="section-description">
+                    Implementing declarative, Git-driven deployments for Kubernetes. 
+                    Using <strong>ArgoCD</strong> to maintain cluster state, automate rollouts, 
+                    and ensure infrastructure consistency across environments.
+                </p>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <span class="stat-icon">🔄</span>
+                    <span class="stat-value">GitOps</span>
+                    <span class="stat-label">Delivery Model</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">📦</span>
+                    <span class="stat-value">50+</span>
+                    <span class="stat-label">Applications</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">🛡️</span>
+                    <span class="stat-value">Auto</span>
+                    <span class="stat-label">Self-Healing</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-icon">🚀</span>
+                    <span class="stat-value">Zero</span>
+                    <span class="stat-label">Touch Deploys</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Concept -->
+    <section class="concept-section">
+        <div class="container">
+            <div class="concept-grid">
+                <div class="concept-content">
+                    <h2 class="section-title-sm">The GitOps Principle</h2>
+                    <p>
+                        GitOps is an operational framework that takes DevOps best practices used for 
+                        application development—such as version control, collaboration, compliance, 
+                        and CI/CD—and applies them to infrastructure automation.
+                    </p>
+                    <div class="principle-list">
+                        <div class="principle-item">
+                            <span class="check">✓</span>
+                            <div>
+                                <strong>Declarative</strong>
+                                <p>A system managed by GitOps must have its desired state expressed declaratively.</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <span class="check">✓</span>
+                            <div>
+                                <strong>Versioned & Immutable</strong>
+                                <p>Desired state is stored in Git, providing a complete audit log of every change.</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <span class="check">✓</span>
+                            <div>
+                                <strong>Pulled Automatically</strong>
+                                <p>Software agents automatically pull the desired state declarations from Git.</p>
+                            </div>
+                        </div>
+                        <div class="principle-item">
+                            <span class="check">✓</span>
+                            <div>
+                                <strong>Continuously Reconciled</strong>
+                                <p>Software agents continuously observe actual system state and attempt to apply the desired state.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="concept-visual">
+                    <div class="gitops-loop">
+                        <div class="loop-node git">
+                            <span class="node-icon">📦</span>
+                            <span class="node-label">Git Repo</span>
+                        </div>
+                        <div class="loop-arrow">→</div>
+                        <div class="loop-node argo">
+                            <span class="node-icon">🔄</span>
+                            <span class="node-label">ArgoCD</span>
+                        </div>
+                        <div class="loop-arrow">→</div>
+                        <div class="loop-node k8s">
+                            <span class="node-icon">☸️</span>
+                            <span class="node-label">Kubernetes</span>
+                        </div>
+                        <div class="loop-back-arrow">←</div>
+                        <div class="loop-feedback">Feedback / Drift Detection</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Patterns -->
+    <section class="patterns-section">
+        <div class="container">
+            <h2 class="section-title-sm">My Implementation Strategy</h2>
+            <p class="section-desc">Battle-tested patterns for scalable GitOps</p>
+            
+            <div class="patterns-grid">
+                <div class="pattern-card">
+                    <div class="pattern-header">
+                        <span class="pattern-icon">🏗️</span>
+                        <h3>App-of-Apps Pattern</h3>
+                    </div>
+                    <p>
+                        Managing multiple applications as a single ArgoCD application. 
+                        This allows for bootstrapping entire clusters or environment-specific 
+                        toolsets with a single click.
+                    </p>
+                    <div class="code-preview">
+                        <pre><code><span class="code-key">apiVersion</span>: argoproj.io/v1alpha1
+<span class="code-key">kind</span>: Application
+<span class="code-key">metadata</span>:
+  <span class="code-key">name</span>: root-app
+<span class="code-key">spec</span>:
+  <span class="code-key">source</span>:
+    <span class="code-key">path</span>: apps/production
+    <span class="code-key">repoURL</span>: <span class="code-var">$GIT_REPO</span></code></pre>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-header">
+                        <span class="pattern-icon">🎭</span>
+                        <h3>Multi-Environment Kustomize</h3>
+                    </div>
+                    <p>
+                        Using Kustomize to manage environment-specific overrides (QA, Staging, Prod) 
+                        while keeping the base manifests DRY. ArgoCD natively supports 
+                        Kustomize overlays.
+                    </p>
+                    <div class="code-preview">
+                        <pre><code><span class="code-comment">├── base/</span>
+<span class="code-comment">└── overlays/</span>
+    <span class="code-comment">├── qa/</span>
+    <span class="code-comment">├── staging/</span>
+    <span class="code-comment">└── production/</span></code></pre>
+                    </div>
+                </div>
+
+                <div class="pattern-card">
+                    <div class="pattern-header">
+                        <span class="pattern-icon">⎈</span>
+                        <h3>Helm Integration</h3>
+                    </div>
+                    <p>
+                        Deploying third-party tools and internal services using Helm charts. 
+                        ArgoCD manages the Helm lifecycle, providing visibility into 
+                        templated resources and parameters.
+                    </p>
+                    <div class="code-preview">
+                        <pre><code><span class="code-key">source</span>:
+  <span class="code-key">chart</span>: my-app
+  <span class="code-key">helm</span>:
+    <span class="code-key">valueFiles</span>:
+      - values-prod.yaml</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation & Features -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title-sm">Automation & Advanced Features</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Automated Sync</h3>
+                    <p>Automatic application of changes pushed to Git. No manual intervention required for rollouts.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🩹</span>
+                    <h3>Self-Healing</h3>
+                    <p>ArgoCD automatically corrects manual changes in the cluster to match the desired state in Git.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔍</span>
+                    <h3>Drift Detection</h3>
+                    <p>Real-time visibility into differences between Git and Cluster. Visual diffing of manifests.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>RBAC & SSO</h3>
+                    <p>Integrated with corporate SSO for secure access. Granular control over who can sync or modify apps.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>Resource Health</h3>
+                    <p>At-a-glance status of all K8s resources. Custom health checks for CRDs and complex workloads.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h3>Rollback Support</h3>
+                    <p>Instant rollback to any previous version by reverting commits in Git or using the ArgoCD UI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Breakdown -->
+    <section class="visual-breakdown">
+        <div class="container">
+            <h2 class="section-title-sm">Multi-Environment Flow</h2>
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="step-label">Developer</div>
+                    <div class="step-action">Commit to Git</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-label">CI Pipeline</div>
+                    <div class="step-action">Build & Test</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step highlighted">
+                    <div class="step-label">ArgoCD</div>
+                    <div class="step-action">Sync Manifests</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="step-label">Kubernetes</div>
+                    <div class="step-action">Running Apps</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Want to see how it all connects?</h2>
+                <p>Explore the complete DevOps workflow or my Kubernetes components</p>
+                <div class="cta-buttons">
+                    <a href="workflow.html" class="btn btn-primary">
+                        <span>View Workflow</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="k8s-components.html" class="btn btn-secondary">K8s Components</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Chris Ng. Built with passion for infrastructure.</p>
+        </div>
+    </footer>
+
+    <script src="argocd.js"></script>
+</body>
+</html>

@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Lifecycle | Chris Ng</title>
+    <meta name="description" content="My DevOps toolchain across the complete software delivery lifecycle - Plan, Code, Build, Test, Release, Deploy, Operate, Monitor.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="lifecycle.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⎈</span>
+                <span class="logo-text">chris.ng</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="devops-lifecycle.html">DevOps Cycle</a></li>
+                <li><a href="workflow.html">Workflow</a></li>
+                <li><a href="pipeline.html">CI/CD Pipeline</a></li>
+                <li><a href="argocd.html">ArgoCD GitOps</a></li>
+                <li><a href="k8s-components.html">K8s Components</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="lifecycle-hero">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">DevOps Toolchain</span>
+                <h1 class="section-title">The Infinite Loop</h1>
+                <p class="section-description">
+                    A complete view of the tools, technologies, and practices I use across 
+                    the DevOps lifecycle — from planning to monitoring and back again.
+                    Focused on <strong>CNCF cloud-native</strong> and <strong>cloud-agnostic</strong> solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinity Loop Visualization -->
+    <section id="lifecycle" class="lifecycle-visual">
+        <div class="container">
+            <div class="infinity-container">
+                <!-- SVG Infinity Loop -->
+                <svg class="infinity-loop" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="loopGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#6366f1"/>
+                            <stop offset="50%" style="stop-color:#8b5cf6"/>
+                            <stop offset="100%" style="stop-color:#6366f1"/>
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Infinity path -->
+                    <path class="infinity-path" 
+                          d="M 200 200 
+                             C 200 100, 350 100, 400 200 
+                             C 450 300, 600 300, 600 200 
+                             C 600 100, 450 100, 400 200 
+                             C 350 300, 200 300, 200 200"
+                          fill="none" 
+                          stroke="url(#loopGradient)" 
+                          stroke-width="4"
+                          filter="url(#glow)"/>
+                    
+                    <!-- Animated dot -->
+                    <circle class="infinity-dot" r="8" fill="#fff">
+                        <animateMotion 
+                            dur="8s" 
+                            repeatCount="indefinite"
+                            path="M 200 200 
+                                  C 200 100, 350 100, 400 200 
+                                  C 450 300, 600 300, 600 200 
+                                  C 600 100, 450 100, 400 200 
+                                  C 350 300, 200 300, 200 200"/>
+                    </circle>
+                </svg>
+
+                <!-- Stage Labels on the Loop -->
+                <div class="stage-labels">
+                    <!-- Dev Side (Left Loop) -->
+                    <div class="stage-label" data-stage="plan" style="left: 10%; top: 35%;">
+                        <span class="stage-icon">📋</span>
+                        <span class="stage-name">Plan</span>
+                    </div>
+                    <div class="stage-label" data-stage="code" style="left: 18%; top: 65%;">
+                        <span class="stage-icon">💻</span>
+                        <span class="stage-name">Code</span>
+                    </div>
+                    <div class="stage-label" data-stage="build" style="left: 32%; top: 78%;">
+                        <span class="stage-icon">🔨</span>
+                        <span class="stage-name">Build</span>
+                    </div>
+                    <div class="stage-label" data-stage="test" style="left: 42%; top: 55%;">
+                        <span class="stage-icon">🧪</span>
+                        <span class="stage-name">Test</span>
+                    </div>
+                    
+                    <!-- Ops Side (Right Loop) -->
+                    <div class="stage-label" data-stage="release" style="left: 52%; top: 55%;">
+                        <span class="stage-icon">🚀</span>
+                        <span class="stage-name">Release</span>
+                    </div>
+                    <div class="stage-label" data-stage="deploy" style="left: 62%; top: 78%;">
+                        <span class="stage-icon">☸️</span>
+                        <span class="stage-name">Deploy</span>
+                    </div>
+                    <div class="stage-label" data-stage="operate" style="left: 76%; top: 65%;">
+                        <span class="stage-icon">⚙️</span>
+                        <span class="stage-name">Operate</span>
+                    </div>
+                    <div class="stage-label" data-stage="monitor" style="left: 84%; top: 35%;">
+                        <span class="stage-icon">📊</span>
+                        <span class="stage-name">Monitor</span>
+                    </div>
+                </div>
+
+                <!-- Side Labels -->
+                <div class="loop-label loop-label-dev">
+                    <span>DEV</span>
+                </div>
+                <div class="loop-label loop-label-ops">
+                    <span>OPS</span>
+                </div>
+            </div>
+
+            <p class="interaction-hint">
+                <span class="hint-icon">👆</span>
+                Click on any stage to see the tools I use
+            </p>
+        </div>
+    </section>
+
+    <!-- Detailed Stages -->
+    <section class="stages-detail">
+        <div class="container">
+            <!-- Plan -->
+            <article class="stage-card" id="stage-plan">
+                <div class="stage-header">
+                    <div class="stage-number">01</div>
+                    <div class="stage-info">
+                        <h2 class="stage-title">
+                            <span class="stage-emoji">📋</span>
+                            Plan
+                        </h2>
+                        <p class="stage-subtitle">Define requirements, create user stories, and plan sprints</p>
+                    </div>
+                </div>
+                <div class="stage-content">
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <img src="https://about.gitlab.com/images/press/press-kit-icon.svg" alt="GitLab" onerror="this.style.display='none'; this.parentElement.innerHTML='🦊';">
+                            </div>
+                            <div class="tool-info">
+                                <h4>GitLab Issues</h4>
+                                <p>Issue tracking, boards, milestones</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📊</div>
+                            <div class="tool-info">
+                                <h4>GitLab Boards</h4>
+                                <p>Kanban-style project management</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📝</div>
+                            <div class="tool-info">
+                                <h4>Markdown Docs</h4>
+                                <p>Technical specifications & ADRs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-practices">
+                        <h4>Key Practices</h4>
+                        <ul>
+                            <li>Infrastructure as Code planning</li>
+                            <li>Capacity planning for cloud resources</li>
+                            <li>Security requirements definition</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Code -->
+            <article class="stage-card" id="stage-code">
+                <div class="stage-header">
+                    <div class="stage-number">02</div>
+                    <div class="stage-info">
+                        <h2 class="stage-title">
+                            <span class="stage-emoji">💻</span>
+                            Code
+                        </h2>
+                        <p class="stage-subtitle">Write, review, and version control infrastructure and application code</p>
+                    </div>
+                </div>
+                <div class="stage-content">
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">🦊</div>
+                            <div class="tool-info">
+                                <h4>GitLab</h4>
+                                <p>Git hosting, merge requests, code review</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📦</div>
+                            <div class="tool-info">
+                                <h4>Node.js</h4>
+                                <p>JavaScript runtime for tooling & apps</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🐳</div>
+                            <div class="tool-info">
+                                <h4>Docker Compose</h4>
+                                <p>Local dev environment matching K8s</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🐹</div>
+                            <div class="tool-info">
+                                <h4>Go</h4>
+                                <p>Microservices & CLI tools</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🐚</div>
+                            <div class="tool-info">
+                                <h4>Bash / Shell</h4>
+                                <p>Automation scripts & CI jobs</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📄</div>
+                            <div class="tool-info">
+                                <h4>YAML</h4>
+                                <p>K8s manifests, CI configs, Helm charts</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-practices">
+                        <h4>Key Practices</h4>
+                        <ul>
+                            <li>GitFlow branching strategy</li>
+                            <li>Merge request reviews</li>
+                            <li>Pre-commit hooks for linting</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Build -->
+            <article class="stage-card" id="stage-build">
+                <div class="stage-header">
+                    <div class="stage-number">03</div>
+                    <div class="stage-info">
+                        <h2 class="stage-title">
+                            <span class="stage-emoji">🔨</span>
+                            Build
+                        </h2>
+                        <p class="stage-subtitle">Compile code, build containers, and create artifacts</p>
+                    </div>
+                </div>
+                <div class="stage-content">
+                    <div class="tools-grid">
+                        <div class="tool-card featured">
+                            <div class="tool-icon">🦊</div>
+                            <div class="tool-info">
+                                <h4>GitLab CI</h4>
+                                <p>Pipeline orchestration with reusable templates</p>
+                            </div>
+                            <div class="tool-badge">Primary</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🐳</div>
+                            <div class="tool-info">
+                                <h4>Docker</h4>
+                                <p>Container image building</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🏗️</div>
+                            <div class="tool-info">
+                                <h4>Kaniko</h4>
+                                <p>Rootless container builds in K8s</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🧱</div>
+                            <div class="tool-info">
+                                <h4>Buildah</h4>
+                                <p>OCI image building without daemon</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📦</div>
+                            <div class="tool-info">
+                                <h4>npm / pnpm</h4>
+                                <p>Node.js package management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-file">kaniko-build.yml</span>
+                        </div>
+                        <pre class="code-block"><code><span class="code-key">.kaniko-build</span>:
+  <span class="code-key">stage</span>: build
+  <span class="code-key">image</span>:
+    <span class="code-key">name</span>: <span class="code-string">kaniko-project/executor:v1.18.0-debug</span>
+  <span class="code-key">script</span>:
+    - /kaniko/executor
+      --cache=<span class="code-bool">true</span>
+      --cache-repo=<span class="code-var">$CI_REGISTRY_IMAGE</span>/cache
+      --context <span class="code-var">$CI_PROJECT_DIR</span>
+      --destination <span class="code-var">$CONTAINER_IMAGE</span></code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Test -->
+            <article class="stage-card" id="stage-test">
+                <div class="stage-header">
+                    <div class="stage-number">04</div>
+                    <div class="stage-info">
+                        <h2 class="stage-title">
+                            <span class="stage-emoji">🧪</span>
+                            Test
+                        </h2>
+                        <p class="stage-subtitle">Automated testing, security scanning, and quality gates</p>
+                    </div>
+                </div>
+                <div class="stage-content">
+                    <div class="tools-grid tools-grid-compact">
+                        <div class="tool-card">
+                            <div class="tool-icon">🔍</div>
+                            <div class="tool-info">
+                                <h4>CodeQL</h4>
+                                <p>Code quality & tech debt</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">✨</div>
+                            <div class="tool-info">
+                                <h4>ESLint</h4>
+                                <p>JavaScript linting</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🔐</div>
+                            <div class="tool-info">
+                                <h4>SAST</h4>
+                                <p>Static security analysis</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🕷️</div>
+                            <div class="tool-info">
+                                <h4>Burp Suite</h4>
+                                <p>Dynamic security testing</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🌐</div>
+                            <div class="tool-info">
+                                <h4>Selenium</h4>
+                                <p>Browser automation testing</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🌙</div>
+                            <div class="tool-info">
+                                <h4>Nightwatch</h4>
+                                <p>E2E testing framework</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🏠</div>
+                            <div class="tool-info">
+                                <h4>Lighthouse</h4>
+                                <p>Performance & accessibility</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📸</div>
+                            <div class="tool-info">
+                                <h4>BackstopJS</h4>
+                                <p>Visual regression testing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-practices">
+                        <h4>Testing Strategy</h4>
+                        <ul>
+                            <li>Unit tests on every commit</li>
+                            <li>Security scanning in CI pipeline</li>
+                            <li>Visual regression before releases</li>
+                            <li>Performance benchmarks via Lighthouse</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Release -->
+            <article class="stage-card" id="stage-release">
+                <div class="stage-header">
+                    <div class="stage-number">05</div>
+                    <div class="stage-info">
+                        <h2 class="stage-title">
+                            <span class="stage-emoji">🚀</span>
+                            Release
+                        </h2>
+                        <p class="stage-subtitle">Version, tag, and prepare artifacts for deployment</p>
+                    </div>
+                </div>
+                <div class="stage-content">
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">🏷️</div>
+                            <div class="tool-info">
+                                <h4>Semantic Versioning</h4>
+                                <p>Consistent version numbering</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🦊</div>
+                            <div class="tool-info">
+                                <h4>GitLab Registry</h4>
+                                <p>Container image storage</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🏗️</div>
+                            <div class="tool-info">
+                                <h4>Crane</h4>
+                                <p>Image tagging & promotion</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📦</div>
+                            <div class="tool-info">
+                                <h4>GitLab npm Registry</h4>
+                                <p>Private package publishing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-file">tag-image.yml</span>
+                        </div>
+                        <pre class="code-block"><code><span class="code-key">release-image</span>:
+  <span class="code-key">stage</span>: release
+  <span class="code-key">script</span>:
+    - crane auth login -u <span class="code-var">$CI_REGISTRY_USER</span> -p <span class="code-var">$CI_REGISTRY_PASSWORD</span> <span class="code-var">$CI_REGISTRY</span>
+    - crane tag <span class="code-var">$SOURCE_IMAGE</span> <span class="code-var">$RELEASE_TAG</span>
+  <span class="code-key">only</span>:
+    - tags</code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Deploy -->
+            <article class="stage-card" id="stage-deploy">
+                <div class="stage-header">
+                    <div class="stage-number">06</div>
+                    <div class="stage-info">
+                        <h2 class="stage-title">
+                            <span class="stage-emoji">☸️</span>
+                            Deploy
+                        </h2>
+                        <p class="stage-subtitle">GitOps-driven deployments to Kubernetes clusters</p>
+                    </div>
+                </div>
+                <div class="stage-content">
+                    <div class="tools-grid">
+                        <div class="tool-card featured">
+                            <div class="tool-icon">🔄</div>
+                            <div class="tool-info">
+                                <h4>ArgoCD</h4>
+                                <p>GitOps continuous delivery for K8s</p>
+                            </div>
+                            <div class="tool-badge">Primary</div>
+                        </div>
+                        <div class="tool-card featured">
+                            <div class="tool-icon">☸️</div>
+                            <div class="tool-info">
+                                <h4>Kubernetes</h4>
+                                <p>Container orchestration platform</p>
+                            </div>
+                            <div class="tool-badge">Primary</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">⎈</div>
+                            <div class="tool-info">
+                                <h4>Helm</h4>
+                                <p>Kubernetes package manager</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🏗️</div>
+                            <div class="tool-info">
+                                <h4>Kustomize</h4>
+                                <p>K8s manifest customization</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">☁️</div>
+                            <div class="tool-info">
+                                <h4>AWS</h4>
+                                <p>EC2, EKS, S3, Lambda, RDS</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">☁️</div>
+                            <div class="tool-info">
+                                <h4>Alibaba Cloud ACK</h4>
+                                <p>Managed Kubernetes service</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">⚡</div>
+                            <div class="tool-info">
+                                <h4>Fission</h4>
+                                <p>Serverless functions on K8s</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🐬</div>
+                            <div class="tool-info">
+                                <h4>Databases</h4>
+                                <p>MySQL, PostgreSQL, MongoDB, Redis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-file">argocd-deploy.yml</span>
+                        </div>
+                        <pre class="code-block"><code><span class="code-key">.argocd-deploy</span>:
+  <span class="code-key">script</span>:
+    - argocd app create --upsert -f <span class="code-var">$ARGOCD_APP_FILE</span> --grpc-web
+    - argocd app sync <span class="code-var">$APP_NAME</span> --timeout <span class="code-num">600</span>
+    - argocd app wait <span class="code-var">$APP_NAME</span> --grpc-web</code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Operate -->
+            <article class="stage-card" id="stage-operate">
+                <div class="stage-header">
+                    <div class="stage-number">07</div>
+                    <div class="stage-info">
+                        <h2 class="stage-title">
+                            <span class="stage-emoji">⚙️</span>
+                            Operate
+                        </h2>
+                        <p class="stage-subtitle">Infrastructure management, secrets, and configuration</p>
+                    </div>
+                </div>
+                <div class="stage-content">
+                    <div class="tools-grid">
+                        <div class="tool-card featured">
+                            <div class="tool-icon">🏗️</div>
+                            <div class="tool-info">
+                                <h4>Terraform</h4>
+                                <p>Infrastructure as Code for Alibaba Cloud</p>
+                            </div>
+                            <div class="tool-badge">Primary</div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🔐</div>
+                            <div class="tool-info">
+                                <h4>HashiCorp Vault</h4>
+                                <p>Secrets management</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🔒</div>
+                            <div class="tool-info">
+                                <h4>git-crypt</h4>
+                                <p>Encrypted secrets in Git</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">☁️</div>
+                            <div class="tool-info">
+                                <h4>Cloudflare</h4>
+                                <p>DNS & CDN management</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🧹</div>
+                            <div class="tool-info">
+                                <h4>Image Cleanup Jobs</h4>
+                                <p>Registry garbage collection</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🗄️</div>
+                            <div class="tool-info">
+                                <h4>Rook Ceph</h4>
+                                <p>Cloud-native storage</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">⚡</div>
+                            <div class="tool-info">
+                                <h4>Varnish Cache</h4>
+                                <p>Edge acceleration</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span class="code-file">Terraform Structure</span>
+                        </div>
+                        <pre class="code-block"><code><span class="code-comment">├── environments/</span>   <span class="code-dim"># dev, staging, prod variables</span>
+<span class="code-comment">├── modules/</span>        <span class="code-dim"># reusable infrastructure modules</span>
+<span class="code-comment">└── providers/</span>      <span class="code-dim"># cloud provider configurations</span>
+
+<span class="code-dim"># Run with environment selection:</span>
+<span class="code-key">ENV</span>=prod make plan
+<span class="code-key">ENV</span>=prod make apply</code></pre>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Monitor -->
+            <article class="stage-card" id="stage-monitor">
+                <div class="stage-header">
+                    <div class="stage-number">08</div>
+                    <div class="stage-info">
+                        <h2 class="stage-title">
+                            <span class="stage-emoji">📊</span>
+                            Monitor
+                        </h2>
+                        <p class="stage-subtitle">Observability, logging, and performance tracking</p>
+                    </div>
+                </div>
+                <div class="stage-content">
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">📈</div>
+                            <div class="tool-info">
+                                <h4>Prometheus</h4>
+                                <p>Metrics collection & alerting</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📊</div>
+                            <div class="tool-info">
+                                <h4>Grafana</h4>
+                                <p>Dashboards & visualization</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">📝</div>
+                            <div class="tool-info">
+                                <h4>Loki / ELK</h4>
+                                <p>Log aggregation & search</p>
+                            </div>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">🔔</div>
+                            <div class="tool-info">
+                                <h4>Alerting</h4>
+                                <p>PagerDuty / Slack integrations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-practices">
+                        <h4>Observability Practices</h4>
+                        <ul>
+                            <li>Golden signals: latency, traffic, errors, saturation</li>
+                            <li>Structured logging with correlation IDs</li>
+                            <li>SLO/SLI tracking for critical services</li>
+                            <li>Automated runbooks for common incidents</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="lifecycle-summary">
+        <div class="container">
+            <div class="summary-grid">
+                <div class="summary-stat">
+                    <span class="summary-value">20+</span>
+                    <span class="summary-label">CI/CD Templates</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="summary-value">8</span>
+                    <span class="summary-label">Lifecycle Stages</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="summary-value">30+</span>
+                    <span class="summary-label">Tools & Technologies</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="summary-value">GitOps</span>
+                    <span class="summary-label">Deployment Model</span>
+                </div>
+            </div>
+            <div class="summary-cta">
+                <a href="index.html#projects" class="btn btn-primary">
+                    <span>See Project Details</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="index.html#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Chris Ng. Built with passion for infrastructure.</p>
+        </div>
+    </footer>
+
+    <script src="lifecycle.js"></script>
+</body>
+</html>

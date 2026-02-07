@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Pipeline | Chris Ng</title>
+    <meta name="description" content="CI/CD pipeline architecture designed for application teams - reusable templates, multi-environment deployments, and automated quality gates.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pipeline.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⎈</span>
+                <span class="logo-text">chris.ng</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="devops-lifecycle.html">DevOps Cycle</a></li>
+                <li><a href="workflow.html">Workflow</a></li>
+                <li><a href="pipeline.html">CI/CD Pipeline</a></li>
+                <li><a href="argocd.html">ArgoCD GitOps</a></li>
+                <li><a href="k8s-components.html">K8s Components</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pipeline-hero">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">CI/CD Architecture</span>
+                <h1 class="section-title">Pipeline Design for App Teams</h1>
+                <p class="section-description">
+                    A modular, reusable CI/CD pipeline architecture built with GitLab CI. 
+                    Designed for speed, security, and developer experience — using 
+                    <strong>CNCF cloud-native</strong> tools for <strong>cloud-agnostic</strong> deployments.
+                </p>
+            </div>
+            
+            <!-- Key Metrics -->
+            <div class="hero-metrics">
+                <div class="metric">
+                    <span class="metric-value">20+</span>
+                    <span class="metric-label">Job Templates</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">5</span>
+                    <span class="metric-label">Ready-to-Use Pipelines</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">4</span>
+                    <span class="metric-label">Environments</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">~5 min</span>
+                    <span class="metric-label">Avg. Pipeline Time</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Overview -->
+    <section class="architecture-section">
+        <div class="container">
+            <h2 class="section-title-sm">Template Architecture</h2>
+            <p class="section-desc">Modular design with reusable components at every level</p>
+            
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <div class="layer-label">Ready-to-Use Templates</div>
+                    <div class="layer-items">
+                        <div class="arch-item template">
+                            <span class="item-icon">📦</span>
+                            <span class="item-name">nodejs-common</span>
+                        </div>
+                        <div class="arch-item template">
+                            <span class="item-icon">📦</span>
+                            <span class="item-name">nodejs-with-qa</span>
+                        </div>
+                        <div class="arch-item template">
+                            <span class="item-icon">📦</span>
+                            <span class="item-name">go-common</span>
+                        </div>
+                        <div class="arch-item template">
+                            <span class="item-icon">📦</span>
+                            <span class="item-name">go-kaniko</span>
+                        </div>
+                        <div class="arch-item template">
+                            <span class="item-icon">📦</span>
+                            <span class="item-name">nodejs-kaniko</span>
+                        </div>
+                    </div>
+                    <div class="layer-desc">Complete pipelines — just include and configure</div>
+                </div>
+
+                <div class="arch-arrow">
+                    <svg width="24" height="40" viewBox="0 0 24 40">
+                        <path d="M12 0 L12 30 M4 22 L12 35 L20 22" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    <span>composes</span>
+                </div>
+
+                <div class="arch-layer">
+                    <div class="layer-label">Job Templates</div>
+                    <div class="layer-items compact">
+                        <div class="arch-item job">kaniko-build</div>
+                        <div class="arch-item job">buildah-build</div>
+                        <div class="arch-item job">dind-build</div>
+                        <div class="arch-item job">argocd-deploy</div>
+                        <div class="arch-item job">k8s-deploy</div>
+                        <div class="arch-item job">fission-deploy</div>
+                        <div class="arch-item job">eslint</div>
+                        <div class="arch-item job">unit</div>
+                        <div class="arch-item job">SAST</div>
+                        <div class="arch-item job">security-scanning</div>
+                        <div class="arch-item job">lighthouse</div>
+                        <div class="arch-item job">backstopjs</div>
+                        <div class="arch-item job">selenium</div>
+                        <div class="arch-item job">nightwatch</div>
+                        <div class="arch-item job">tag-image</div>
+                        <div class="arch-item job">crane-release</div>
+                        <div class="arch-item job">vault</div>
+                        <div class="arch-item job">burp-suite</div>
+                    </div>
+                    <div class="layer-desc">Reusable job definitions — extend and customize</div>
+                </div>
+
+                <div class="arch-arrow">
+                    <svg width="24" height="40" viewBox="0 0 24 40">
+                        <path d="M12 0 L12 30 M4 22 L12 35 L20 22" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    <span>uses</span>
+                </div>
+
+                <div class="arch-layer">
+                    <div class="layer-label">Shared Jobs & Utilities</div>
+                    <div class="layer-items compact">
+                        <div class="arch-item util">code-quality</div>
+                        <div class="arch-item util">codeql</div>
+                        <div class="arch-item util">image-cleanup</div>
+                        <div class="arch-item util">_dind</div>
+                        <div class="arch-item util">_gitlab-npm</div>
+                    </div>
+                    <div class="layer-desc">Common jobs and utility scripts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline Stages -->
+    <section class="stages-section">
+        <div class="container">
+            <h2 class="section-title-sm">Pipeline Stages</h2>
+            <p class="section-desc">Every commit goes through these quality gates</p>
+
+            <div class="pipeline-visual">
+                <div class="pipeline-track">
+                    <!-- Build Stage -->
+                    <div class="stage-block" data-stage="build">
+                        <div class="stage-header">
+                            <span class="stage-icon">🔨</span>
+                            <span class="stage-name">Build</span>
+                        </div>
+                        <div class="stage-jobs">
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>kaniko-build</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>buildah-build</span>
+                            </div>
+                        </div>
+                        <div class="stage-info">
+                            <p>Build container images using rootless builders</p>
+                            <ul>
+                                <li>Kaniko for K8s-native builds</li>
+                                <li>Multi-stage Dockerfile support</li>
+                                <li>Layer caching for speed</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="stage-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">→</div>
+                    </div>
+
+                    <!-- Test Stage -->
+                    <div class="stage-block" data-stage="test">
+                        <div class="stage-header">
+                            <span class="stage-icon">🧪</span>
+                            <span class="stage-name">Test</span>
+                        </div>
+                        <div class="stage-jobs">
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>unit-test</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>eslint</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>code-quality</span>
+                            </div>
+                        </div>
+                        <div class="stage-info">
+                            <p>Automated testing and code quality checks</p>
+                            <ul>
+                                <li>Unit tests with coverage</li>
+                                <li>ESLint / static analysis</li>
+                                <li>CodeQL / GitHub Code Scanning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="stage-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">→</div>
+                    </div>
+
+                    <!-- Security Stage -->
+                    <div class="stage-block" data-stage="security">
+                        <div class="stage-header">
+                            <span class="stage-icon">🔐</span>
+                            <span class="stage-name">Security</span>
+                        </div>
+                        <div class="stage-jobs">
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>SAST</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>secret-detection</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>container-scan</span>
+                            </div>
+                        </div>
+                        <div class="stage-info">
+                            <p>Security scanning at every layer</p>
+                            <ul>
+                                <li>Semgrep SAST analysis</li>
+                                <li>Trivy / Prisma Cloud scanning</li>
+                                <li>Secret leak detection</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="stage-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">→</div>
+                    </div>
+
+                    <!-- Release Stage -->
+                    <div class="stage-block" data-stage="release">
+                        <div class="stage-header">
+                            <span class="stage-icon">🏷️</span>
+                            <span class="stage-name">Release</span>
+                        </div>
+                        <div class="stage-jobs">
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>tag-image</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>crane-release</span>
+                            </div>
+                        </div>
+                        <div class="stage-info">
+                            <p>Tag and promote images for deployment</p>
+                            <ul>
+                                <li>Semantic version tagging</li>
+                                <li>Environment-specific tags</li>
+                                <li>Registry promotion</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="stage-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">→</div>
+                    </div>
+
+                    <!-- Deploy Stage -->
+                    <div class="stage-block" data-stage="deploy">
+                        <div class="stage-header">
+                            <span class="stage-icon">🚀</span>
+                            <span class="stage-name">Deploy</span>
+                        </div>
+                        <div class="stage-jobs">
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>argocd-deploy</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>k8s-deploy</span>
+                            </div>
+                        </div>
+                        <div class="stage-info">
+                            <p>GitOps-driven deployment to Kubernetes</p>
+                            <ul>
+                                <li>ArgoCD sync & wait</li>
+                                <li>Helm / Kustomize support</li>
+                                <li>Rollback on failure</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="stage-connector">
+                        <div class="connector-line"></div>
+                        <div class="connector-arrow">→</div>
+                    </div>
+
+                    <!-- Post-Deploy Stage -->
+                    <div class="stage-block" data-stage="postdeploy">
+                        <div class="stage-header">
+                            <span class="stage-icon">✅</span>
+                            <span class="stage-name">Verify</span>
+                        </div>
+                        <div class="stage-jobs">
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>selenium</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>lighthouse</span>
+                            </div>
+                            <div class="job-chip">
+                                <span class="job-status success"></span>
+                                <span>backstopjs</span>
+                            </div>
+                        </div>
+                        <div class="stage-info">
+                            <p>Post-deployment validation</p>
+                            <ul>
+                                <li>E2E tests with Selenium</li>
+                                <li>Performance via Lighthouse</li>
+                                <li>Visual regression tests</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Environment Strategy -->
+    <section class="environments-section">
+        <div class="container">
+            <h2 class="section-title-sm">Multi-Environment Deployment</h2>
+            <p class="section-desc">Automatic deployments based on branch strategy</p>
+
+            <div class="env-flow">
+                <!-- Branch to Environment mapping -->
+                <div class="env-mapping">
+                    <div class="branch-env-row">
+                        <div class="branch-box feature">
+                            <span class="branch-icon">🌿</span>
+                            <span class="branch-name">feature/*</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="env-box qa">
+                            <span class="env-icon">🧪</span>
+                            <div class="env-details">
+                                <span class="env-name">QA Environment</span>
+                                <span class="env-url">qa-{branch}.dev.example.com</span>
+                            </div>
+                            <span class="env-badge auto">Auto</span>
+                        </div>
+                        <div class="env-actions">
+                            <span class="action-tag">Auto-provision on MR</span>
+                            <span class="action-tag">Auto-destroy on merge</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-env-row">
+                        <div class="branch-box develop">
+                            <span class="branch-icon">🔀</span>
+                            <span class="branch-name">develop / main</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="env-box staging">
+                            <span class="env-icon">🎭</span>
+                            <div class="env-details">
+                                <span class="env-name">Staging</span>
+                                <span class="env-url">staging.example.com</span>
+                            </div>
+                            <span class="env-badge auto">Auto</span>
+                        </div>
+                        <div class="env-actions">
+                            <span class="action-tag">Auto-deploy on merge</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-env-row">
+                        <div class="branch-box uat">
+                            <span class="branch-icon">👥</span>
+                            <span class="branch-name">uat</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="env-box uat-env">
+                            <span class="env-icon">🧑‍💼</span>
+                            <div class="env-details">
+                                <span class="env-name">UAT</span>
+                                <span class="env-url">uat.example.com</span>
+                            </div>
+                            <span class="env-badge auto">Auto</span>
+                        </div>
+                        <div class="env-actions">
+                            <span class="action-tag">User acceptance testing</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-env-row">
+                        <div class="branch-box production">
+                            <span class="branch-icon">🚀</span>
+                            <span class="branch-name">production</span>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="env-box prod">
+                            <span class="env-icon">🌐</span>
+                            <div class="env-details">
+                                <span class="env-name">Production</span>
+                                <span class="env-url">app.example.com</span>
+                            </div>
+                            <span class="env-badge manual">Manual</span>
+                        </div>
+                        <div class="env-actions">
+                            <span class="action-tag">Manual approval required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples -->
+    <section class="code-section">
+        <div class="container">
+            <h2 class="section-title-sm">Usage Examples</h2>
+            <p class="section-desc">How app teams use the CI templates</p>
+
+            <div class="code-examples">
+                <!-- Example 1: Basic Usage -->
+                <div class="code-example-card">
+                    <div class="example-header">
+                        <span class="example-icon">1️⃣</span>
+                        <div class="example-info">
+                            <h3>Basic Node.js App</h3>
+                            <p>Include template and override variables</p>
+                        </div>
+                    </div>
+                    <div class="code-block-wrapper">
+                        <div class="code-filename">.gitlab-ci.yml</div>
+                        <pre class="code-block"><code><span class="code-comment"># Include the ready-to-use template</span>
+<span class="code-key">include</span>:
+  - <span class="code-key">project</span>: <span class="code-string">'hub/gitlab/ci-template'</span>
+    <span class="code-key">file</span>: <span class="code-string">'/ci-templates/nodejs-common.yml'</span>
+
+<span class="code-comment"># Override variables for your app</span>
+<span class="code-key">variables</span>:
+  <span class="code-key">APP_DIR</span>: ./my-app
+  <span class="code-key">CONTAINER_IMAGE</span>: <span class="code-var">$CI_REGISTRY_IMAGE</span>:<span class="code-var">$CI_COMMIT_SHA</span></code></pre>
+                    </div>
+                </div>
+
+                <!-- Example 2: With QA Environments -->
+                <div class="code-example-card">
+                    <div class="example-header">
+                        <span class="example-icon">2️⃣</span>
+                        <div class="example-info">
+                            <h3>With Dynamic QA Environments</h3>
+                            <p>Auto-provision per feature branch</p>
+                        </div>
+                    </div>
+                    <div class="code-block-wrapper">
+                        <div class="code-filename">.gitlab-ci.yml</div>
+                        <pre class="code-block"><code><span class="code-key">include</span>:
+  - <span class="code-key">project</span>: <span class="code-string">'hub/gitlab/ci-template'</span>
+    <span class="code-key">file</span>: <span class="code-string">'/ci-templates/nodejs-with-qa.yml'</span>
+
+<span class="code-comment"># QA environment auto-created for each MR</span>
+<span class="code-comment"># URL: https://{branch}-{project}.dev.example.com</span>
+<span class="code-comment"># Auto-destroyed when MR is closed/merged</span></code></pre>
+                    </div>
+                </div>
+
+                <!-- Example 3: Custom Job -->
+                <div class="code-example-card">
+                    <div class="example-header">
+                        <span class="example-icon">3️⃣</span>
+                        <div class="example-info">
+                            <h3>Extending Job Templates</h3>
+                            <p>Add custom jobs using templates</p>
+                        </div>
+                    </div>
+                    <div class="code-block-wrapper">
+                        <div class="code-filename">.gitlab-ci.yml</div>
+                        <pre class="code-block"><code><span class="code-key">include</span>:
+  - <span class="code-key">project</span>: <span class="code-string">'hub/gitlab/ci-template'</span>
+    <span class="code-key">file</span>: <span class="code-string">'/job-templates/kaniko-build.yml'</span>
+  - <span class="code-key">project</span>: <span class="code-string">'hub/gitlab/ci-template'</span>
+    <span class="code-key">file</span>: <span class="code-string">'/job-templates/argocd-deploy.yml'</span>
+
+<span class="code-comment"># Extend and customize</span>
+<span class="code-key">build-app</span>:
+  <span class="code-key">extends</span>: .kaniko-build
+  <span class="code-key">variables</span>:
+    <span class="code-key">DOCKERFILE</span>: Dockerfile.prod
+
+<span class="code-key">deploy-staging</span>:
+  <span class="code-key">extends</span>: .argocd-dev-deploy
+  <span class="code-key">variables</span>:
+    <span class="code-key">ARGOCD_APP_NAME</span>: my-app-staging</code></pre>
+                    </div>
+                </div>
+
+                <!-- Example 4: ArgoCD Deploy -->
+                <div class="code-example-card">
+                    <div class="example-header">
+                        <span class="example-icon">4️⃣</span>
+                        <div class="example-info">
+                            <h3>ArgoCD GitOps Deploy</h3>
+                            <p>Sync and wait for deployment</p>
+                        </div>
+                    </div>
+                    <div class="code-block-wrapper">
+                        <div class="code-filename">argocd-deploy.yml</div>
+                        <pre class="code-block"><code><span class="code-key">.argocd-deploy</span>:
+  <span class="code-key">stage</span>: deploy
+  <span class="code-key">script</span>:
+    <span class="code-comment"># Create/update ArgoCD application</span>
+    - argocd app create --upsert -f <span class="code-var">$ARGOCD_APP_FILE</span>
+    
+    <span class="code-comment"># Sync and wait for rollout</span>
+    - argocd app sync <span class="code-var">$APP_NAME</span> --timeout <span class="code-num">600</span>
+    - argocd app wait <span class="code-var">$APP_NAME</span> --grpc-web
+    
+    <span class="code-comment"># Print deployment logs</span>
+    - argocd app logs <span class="code-var">$APP_NAME</span> --kind=Deployment</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Template Library -->
+    <section class="library-section">
+        <div class="container">
+            <h2 class="section-title-sm">Complete Template Library</h2>
+            <p class="section-desc">All available job templates and their purposes</p>
+
+            <div class="template-grid">
+                <div class="template-category">
+                    <h3 class="category-title">
+                        <span class="cat-icon">🔨</span>
+                        Build
+                    </h3>
+                    <div class="template-list">
+                        <div class="template-item">
+                            <span class="template-name">kaniko-build</span>
+                            <span class="template-desc">Rootless container builds in K8s</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">buildah-build</span>
+                            <span class="template-desc">OCI image builds without daemon</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">dind-build</span>
+                            <span class="template-desc">Docker-in-Docker builds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="template-category">
+                    <h3 class="category-title">
+                        <span class="cat-icon">🧪</span>
+                        Test
+                    </h3>
+                    <div class="template-list">
+                        <div class="template-item">
+                            <span class="template-name">unit</span>
+                            <span class="template-desc">Unit test runner</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">eslint</span>
+                            <span class="template-desc">JavaScript linting</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">selenium</span>
+                            <span class="template-desc">Browser automation tests</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">nightwatch</span>
+                            <span class="template-desc">E2E testing framework</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">backstopjs</span>
+                            <span class="template-desc">Visual regression testing</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">lighthouse</span>
+                            <span class="template-desc">Performance & accessibility</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">sitespeed.io</span>
+                            <span class="template-desc">Web performance monitoring</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="template-category">
+                    <h3 class="category-title">
+                        <span class="cat-icon">🔐</span>
+                        Security
+                    </h3>
+                    <div class="template-list">
+                        <div class="template-item">
+                            <span class="template-name">SAST</span>
+                            <span class="template-desc">Semgrep static analysis</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">security-scanning</span>
+                            <span class="template-desc">Trivy / Prisma Cloud</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">burp-suite</span>
+                            <span class="template-desc">DAST security testing</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">vault</span>
+                            <span class="template-desc">Secrets injection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="template-category">
+                    <h3 class="category-title">
+                        <span class="cat-icon">🚀</span>
+                        Deploy
+                    </h3>
+                    <div class="template-list">
+                        <div class="template-item">
+                            <span class="template-name">argocd-deploy</span>
+                            <span class="template-desc">GitOps with ArgoCD</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">k8s-deploy</span>
+                            <span class="template-desc">Direct kubectl deploy</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">fission-deploy</span>
+                            <span class="template-desc">Serverless functions</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">tag-image</span>
+                            <span class="template-desc">Image tagging</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">crane-image-release</span>
+                            <span class="template-desc">Image promotion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="template-category">
+                    <h3 class="category-title">
+                        <span class="cat-icon">📊</span>
+                        Quality
+                    </h3>
+                    <div class="template-list">
+                        <div class="template-item">
+                            <span class="template-name">code-quality</span>
+                            <span class="template-desc">CodeQL & GitHub Code Scanning</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">codeql</span>
+                            <span class="template-desc">CodeQL integration</span>
+                        </div>
+                        <div class="template-item">
+                            <span class="template-name">image-cleanup</span>
+                            <span class="template-desc">Registry garbage collection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title-sm">Benefits for App Teams</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Fast Onboarding</h3>
+                    <p>New projects get a complete CI/CD pipeline in minutes with just a few lines of config.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🐳</span>
+                    <h3>Local Dev with Docker Compose</h3>
+                    <p>Teams develop locally with docker-compose, making the transition to K8s deployments seamless.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔒</span>
+                    <h3>Security by Default</h3>
+                    <p>Security scanning, secret detection, and container analysis built into every pipeline.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🧪</span>
+                    <h3>Dynamic Environments</h3>
+                    <p>Every feature branch gets its own QA environment for testing before merge.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔄</span>
+                    <h3>Consistent Deploys</h3>
+                    <p>Same deployment process from dev to production with GitOps and ArgoCD.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">📦</span>
+                    <h3>Reusable Templates</h3>
+                    <p>DRY principle — update templates once, all projects benefit automatically.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">📊</span>
+                    <h3>Full Visibility</h3>
+                    <p>Pipeline status, test results, and deployment history in one place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Want to learn more?</h2>
+                <p>Explore the complete DevOps workflow or get in touch</p>
+                <div class="cta-buttons">
+                    <a href="workflow.html" class="btn btn-primary">
+                        <span>View Full Workflow</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="argocd.html" class="btn btn-secondary">Explore ArgoCD</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Chris Ng. Built with passion for infrastructure.</p>
+        </div>
+    </footer>
+
+    <script src="pipeline.js"></script>
+</body>
+</html>

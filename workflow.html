@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Workflow | Chris Ng</title>
+    <meta name="description" content="End-to-end DevOps workflow for application teams - GitFlow, CI/CD, dynamic environments, GitOps deployment, monitoring, and security.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="workflow.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">⎈</span>
+                <span class="logo-text">chris.ng</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="devops-lifecycle.html">DevOps Cycle</a></li>
+                <li><a href="workflow.html">Workflow</a></li>
+                <li><a href="pipeline.html">CI/CD Pipeline</a></li>
+                <li><a href="argocd.html">ArgoCD GitOps</a></li>
+                <li><a href="k8s-components.html">K8s Components</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="workflow-hero">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">End-to-End Pipeline</span>
+                <h1 class="section-title">DevOps Workflow for App Teams</h1>
+                <p class="section-description">
+                    A complete GitOps-driven workflow from code commit to production, 
+                    with dynamic environments, security scanning, and full observability.
+                    Built on <strong>CNCF cloud-native</strong> standards for <strong>cloud-agnostic</strong> portability.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Flowchart -->
+    <section id="workflow" class="workflow-section">
+        <div class="container">
+            <!-- Flow Overview -->
+            <div class="flow-overview">
+                <div class="flow-phase">
+                    <span class="phase-icon">💻</span>
+                    <span class="phase-name">Code</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-phase">
+                    <span class="phase-icon">🔍</span>
+                    <span class="phase-name">Validate</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-phase">
+                    <span class="phase-icon">🧪</span>
+                    <span class="phase-name">Test</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-phase">
+                    <span class="phase-icon">🚀</span>
+                    <span class="phase-name">Deploy</span>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-phase">
+                    <span class="phase-icon">📊</span>
+                    <span class="phase-name">Monitor</span>
+                </div>
+            </div>
+
+            <!-- Detailed Flowchart -->
+            <div class="flowchart">
+                <!-- Row 1: GitFlow -->
+                <div class="flow-row">
+                    <div class="flow-stage-header">
+                        <span class="stage-num">1</span>
+                        <h2>GitFlow Branching</h2>
+                        <p>Version control strategy with GitLab / GitHub</p>
+                    </div>
+                </div>
+
+                <div class="flow-row flow-branches">
+                    <div class="branch-diagram">
+                        <div class="branch main-branch">
+                            <div class="branch-line"></div>
+                            <div class="branch-label">main / master</div>
+                            <div class="branch-desc">Production-ready code</div>
+                        </div>
+                        <div class="branch uat-branch">
+                            <div class="branch-line"></div>
+                            <div class="branch-label">uat</div>
+                            <div class="branch-desc">User acceptance testing</div>
+                        </div>
+                        <div class="branch staging-branch">
+                            <div class="branch-line"></div>
+                            <div class="branch-label">staging</div>
+                            <div class="branch-desc">Pre-production validation</div>
+                        </div>
+                        <div class="branch develop-branch">
+                            <div class="branch-line"></div>
+                            <div class="branch-label">develop</div>
+                            <div class="branch-desc">Integration branch</div>
+                        </div>
+                        <div class="branch feature-branch">
+                            <div class="branch-line"></div>
+                            <div class="branch-label">feature/*</div>
+                            <div class="branch-desc">New features</div>
+                            <div class="branch-connector"></div>
+                        </div>
+                        <div class="branch hotfix-branch">
+                            <div class="branch-line"></div>
+                            <div class="branch-label">hotfix/*</div>
+                            <div class="branch-desc">Production fixes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flow-tools">
+                        <div class="tool-pill">🦊 GitLab</div>
+                        <div class="tool-pill">🐙 GitHub</div>
+                        <div class="tool-pill">🔀 Merge Requests</div>
+                        <div class="tool-pill">👀 Code Review</div>
+                    </div>
+                </div>
+
+                <!-- Arrow Down -->
+                <div class="flow-connector">
+                    <svg width="40" height="60" viewBox="0 0 40 60">
+                        <path d="M20 0 L20 45 M10 35 L20 50 L30 35" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    <span>Push / MR Created</span>
+                </div>
+
+                <!-- Row 2: CI Pipeline -->
+                <div class="flow-row">
+                    <div class="flow-stage-header">
+                        <span class="stage-num">2</span>
+                        <h2>CI Pipeline Stages</h2>
+                        <p>Automated validation on every push & merge request</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-diagram">
+                    <div class="pipeline-stage" data-stage="lint">
+                        <div class="stage-icon">✨</div>
+                        <div class="stage-name">Lint</div>
+                        <div class="stage-tools">
+                            <span>ESLint</span>
+                            <span>Prettier</span>
+                        </div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    
+                    <div class="pipeline-stage" data-stage="build">
+                        <div class="stage-icon">🔨</div>
+                        <div class="stage-name">Build</div>
+                        <div class="stage-tools">
+                            <span>Kaniko</span>
+                            <span>Buildah</span>
+                        </div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    
+                    <div class="pipeline-stage" data-stage="test">
+                        <div class="stage-icon">🧪</div>
+                        <div class="stage-name">Test</div>
+                        <div class="stage-tools">
+                            <span>Unit Tests</span>
+                            <span>Selenium</span>
+                        </div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    
+                    <div class="pipeline-stage" data-stage="scan">
+                        <div class="stage-icon">🔐</div>
+                        <div class="stage-name">Security</div>
+                        <div class="stage-tools">
+                            <span>SAST</span>
+                            <span>Trivy</span>
+                        </div>
+                    </div>
+                    <div class="pipeline-arrow">→</div>
+                    
+                    <div class="pipeline-stage" data-stage="quality">
+                        <div class="stage-icon">📊</div>
+                        <div class="stage-name">Quality</div>
+                        <div class="stage-tools">
+                            <span>CodeQL</span>
+                            <span>CodeClimate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="serverless-badge">
+                    <span class="badge-icon">⚡</span>
+                    <span>CI Jobs run on Serverless Runners (AWS Fargate / Alibaba Cloud ECI)</span>
+                </div>
+
+                <!-- Arrow Down with Branch -->
+                <div class="flow-connector branching">
+                    <div class="connector-branch left">
+                        <svg width="100" height="80" viewBox="0 0 100 80">
+                            <path d="M50 0 L50 30 L10 60 L10 80" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>Feature Branch</span>
+                    </div>
+                    <div class="connector-branch right">
+                        <svg width="100" height="80" viewBox="0 0 100 80">
+                            <path d="M50 0 L50 30 L90 60 L90 80" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>Main Branch</span>
+                    </div>
+                </div>
+
+                <!-- Row 3: Dynamic Environments (Feature) & Production (Main) -->
+                <div class="flow-row two-columns">
+                    <!-- Left: Dynamic QA Environment -->
+                    <div class="flow-column">
+                        <div class="flow-stage-header">
+                            <span class="stage-num">3a</span>
+                            <h2>Dynamic QA Environment</h2>
+                            <p>Auto-provisioned per feature branch</p>
+                        </div>
+                        
+                        <div class="environment-card qa">
+                            <div class="env-header">
+                                <span class="env-icon">🧪</span>
+                                <span class="env-name">qa-feature-xyz.dev.example.com</span>
+                            </div>
+                            <div class="env-features">
+                                <div class="env-feature">
+                                    <span class="feature-check">✓</span>
+                                    <span>Auto-created on MR open</span>
+                                </div>
+                                <div class="env-feature">
+                                    <span class="feature-check">✓</span>
+                                    <span>Isolated namespace per branch</span>
+                                </div>
+                                <div class="env-feature">
+                                    <span class="feature-check">✓</span>
+                                    <span>QA testing before merge</span>
+                                </div>
+                                <div class="env-feature">
+                                    <span class="feature-check">✓</span>
+                                    <span>Auto-destroyed on MR close</span>
+                                </div>
+                            </div>
+                            <div class="env-tools">
+                                <span class="tool-pill small">ArgoCD</span>
+                                <span class="tool-pill small">Helm</span>
+                                <span class="tool-pill small">Kustomize</span>
+                            </div>
+                        </div>
+
+                        <div class="qa-tests">
+                            <h4>QA Validation</h4>
+                            <div class="test-grid">
+                                <div class="test-item">
+                                    <span class="test-icon">🌐</span>
+                                    <span>Selenium E2E</span>
+                                </div>
+                                <div class="test-item">
+                                    <span class="test-icon">📸</span>
+                                    <span>BackstopJS Visual</span>
+                                </div>
+                                <div class="test-item">
+                                    <span class="test-icon">🏠</span>
+                                    <span>Lighthouse Perf</span>
+                                </div>
+                                <div class="test-item">
+                                    <span class="test-icon">🌙</span>
+                                    <span>Nightwatch</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Production Deploy -->
+                    <div class="flow-column">
+                        <div class="flow-stage-header">
+                            <span class="stage-num">3b</span>
+                            <h2>Production Deployment</h2>
+                            <p>GitOps-driven release to production</p>
+                        </div>
+                        
+                        <div class="environment-card prod">
+                            <div class="env-header">
+                                <span class="env-icon">🚀</span>
+                                <span class="env-name">app.example.com</span>
+                            </div>
+                            <div class="env-features">
+                                <div class="env-feature">
+                                    <span class="feature-check">✓</span>
+                                    <span>Git as single source of truth</span>
+                                </div>
+                                <div class="env-feature">
+                                    <span class="feature-check">✓</span>
+                                    <span>Declarative config in repo</span>
+                                </div>
+                                <div class="env-feature">
+                                    <span class="feature-check">✓</span>
+                                    <span>Auto-sync on merge to main</span>
+                                </div>
+                                <div class="env-feature">
+                                    <span class="feature-check">✓</span>
+                                    <span>Rollback via git revert</span>
+                                </div>
+                            </div>
+                            <div class="env-tools">
+                                <span class="tool-pill small">ArgoCD</span>
+                                <span class="tool-pill small">Helm</span>
+                                <span class="tool-pill small">Kustomize</span>
+                            </div>
+                        </div>
+
+                        <div class="gitops-flow">
+                            <h4>GitOps Flow</h4>
+                            <div class="gitops-diagram">
+                                <div class="gitops-step">
+                                    <span class="step-icon">📝</span>
+                                    <span>Git Commit</span>
+                                </div>
+                                <div class="gitops-arrow">→</div>
+                                <div class="gitops-step">
+                                    <span class="step-icon">🔄</span>
+                                    <span>ArgoCD Sync</span>
+                                </div>
+                                <div class="gitops-arrow">→</div>
+                                <div class="gitops-step">
+                                    <span class="step-icon">☸️</span>
+                                    <span>K8s Apply</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merge Arrow -->
+                <div class="flow-connector">
+                    <svg width="40" height="60" viewBox="0 0 40 60">
+                        <path d="M20 0 L20 45 M10 35 L20 50 L30 35" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    <span>Deployed & Running</span>
+                </div>
+
+                <!-- Row 4: Monitoring & Security -->
+                <div class="flow-row">
+                    <div class="flow-stage-header">
+                        <span class="stage-num">4</span>
+                        <h2>Monitoring & Observability</h2>
+                        <p>Full visibility into application and infrastructure health</p>
+                    </div>
+                </div>
+
+                <div class="monitoring-grid">
+                    <div class="monitor-card">
+                        <div class="monitor-header">
+                            <span class="monitor-icon">📈</span>
+                            <h3>Metrics</h3>
+                        </div>
+                        <div class="monitor-tools">
+                            <div class="tool-item">
+                                <span class="tool-logo">🔥</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">Prometheus</span>
+                                    <span class="tool-desc">Time-series metrics</span>
+                                </div>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-logo">📊</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">Thanos</span>
+                                    <span class="tool-desc">Long-term storage & HA</span>
+                                </div>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-logo">📉</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">Grafana</span>
+                                    <span class="tool-desc">Dashboards & visualization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monitor-card">
+                        <div class="monitor-header">
+                            <span class="monitor-icon">🔔</span>
+                            <h3>Alerting</h3>
+                        </div>
+                        <div class="monitor-tools">
+                            <div class="tool-item">
+                                <span class="tool-logo">💬</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">Slack Alerts</span>
+                                    <span class="tool-desc">Real-time notifications</span>
+                                </div>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-logo">📟</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">Alertmanager</span>
+                                    <span class="tool-desc">Alert routing & silencing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monitor-card">
+                        <div class="monitor-header">
+                            <span class="monitor-icon">🔍</span>
+                            <h3>Tracing & APM</h3>
+                        </div>
+                        <div class="monitor-tools">
+                            <div class="tool-item">
+                                <span class="tool-logo">🔭</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">Jaeger</span>
+                                    <span class="tool-desc">Distributed tracing</span>
+                                </div>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-logo">🌐</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">Linkerd</span>
+                                    <span class="tool-desc">Service mesh observability</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monitor-card">
+                        <div class="monitor-header">
+                            <span class="monitor-icon">⚡</span>
+                            <h3>Performance</h3>
+                        </div>
+                        <div class="monitor-tools">
+                            <div class="tool-item">
+                                <span class="tool-logo">🏠</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">Lighthouse CI</span>
+                                    <span class="tool-desc">Web vitals monitoring</span>
+                                </div>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-logo">💪</span>
+                                <div class="tool-details">
+                                    <span class="tool-name">k6 / Artillery</span>
+                                    <span class="tool-desc">Load & stress testing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 5: Security -->
+                <div class="flow-row">
+                    <div class="flow-stage-header">
+                        <span class="stage-num">5</span>
+                        <h2>Security Protection</h2>
+                        <p>Multi-layer security across the pipeline and runtime</p>
+                    </div>
+                </div>
+
+                <div class="security-layers">
+                    <div class="security-layer">
+                        <div class="layer-header">
+                            <span class="layer-icon">📝</span>
+                            <h3>Code Security</h3>
+                        </div>
+                        <div class="security-tools">
+                            <div class="security-tool">
+                                <span class="tool-badge sast">SAST</span>
+                                <span class="tool-name">Semgrep</span>
+                                <p>Static code analysis</p>
+                            </div>
+                            <div class="security-tool">
+                                <span class="tool-badge secret">Secret</span>
+                                <span class="tool-name">Secret Detection</span>
+                                <p>Prevent credential leaks</p>
+                            </div>
+                            <div class="security-tool">
+                                <span class="tool-badge quality">Quality</span>
+                                <span class="tool-name">CodeQL</span>
+                                <p>GitHub code scanning & security</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="security-layer">
+                        <div class="layer-header">
+                            <span class="layer-icon">🐳</span>
+                            <h3>Container Security</h3>
+                        </div>
+                        <div class="security-tools">
+                            <div class="security-tool">
+                                <span class="tool-badge scan">Scan</span>
+                                <span class="tool-name">Trivy</span>
+                                <p>Vulnerability scanning</p>
+                            </div>
+                            <div class="security-tool">
+                                <span class="tool-badge runtime">Runtime</span>
+                                <span class="tool-name">Prisma Cloud / Twistlock</span>
+                                <p>Container runtime protection</p>
+                            </div>
+                            <div class="security-tool">
+                                <span class="tool-badge iac">IaC</span>
+                                <span class="tool-name">Checkov</span>
+                                <p>Infrastructure as Code scan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="security-layer">
+                        <div class="layer-header">
+                            <span class="layer-icon">🔐</span>
+                            <h3>Secrets Management</h3>
+                        </div>
+                        <div class="security-tools">
+                            <div class="security-tool">
+                                <span class="tool-badge vault">Vault</span>
+                                <span class="tool-name">HashiCorp Vault</span>
+                                <p>Dynamic secrets & encryption</p>
+                            </div>
+                            <div class="security-tool">
+                                <span class="tool-badge webhook">Inject</span>
+                                <span class="tool-name">Vault Webhook</span>
+                                <p>K8s secrets injection</p>
+                            </div>
+                            <div class="security-tool">
+                                <span class="tool-badge git">Git</span>
+                                <span class="tool-name">git-crypt</span>
+                                <p>Encrypted secrets in repo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="security-layer">
+                        <div class="layer-header">
+                            <span class="layer-icon">🕷️</span>
+                            <h3>Dynamic Testing</h3>
+                        </div>
+                        <div class="security-tools">
+                            <div class="security-tool">
+                                <span class="tool-badge dast">DAST</span>
+                                <span class="tool-name">Burp Suite</span>
+                                <p>Dynamic app security testing</p>
+                            </div>
+                            <div class="security-tool">
+                                <span class="tool-badge pentest">Pentest</span>
+                                <span class="tool-name">OWASP ZAP</span>
+                                <p>Automated penetration testing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Stats -->
+    <section class="workflow-summary">
+        <div class="container">
+            <h2>Pipeline at a Glance</h2>
+            <div class="summary-stats">
+                <div class="stat-card">
+                    <span class="stat-icon">⚡</span>
+                    <span class="stat-value">Serverless</span>
+                    <span class="stat-label">CI Job Execution</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🔄</span>
+                    <span class="stat-value">GitOps</span>
+                    <span class="stat-label">Deployment Model</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🧪</span>
+                    <span class="stat-value">Dynamic</span>
+                    <span class="stat-label">QA Environments</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🔐</span>
+                    <span class="stat-value">10+</span>
+                    <span class="stat-label">Security Tools</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">📊</span>
+                    <span class="stat-value">Full Stack</span>
+                    <span class="stat-label">Observability</span>
+                </div>
+            </div>
+            <div class="summary-cta">
+                <a href="devops-lifecycle.html" class="btn btn-primary">
+                    <span>View Tool Details</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="index.html#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Chris Ng. Built with passion for infrastructure.</p>
+        </div>
+    </footer>
+
+    <script src="workflow.js"></script>
+</body>
+</html>
