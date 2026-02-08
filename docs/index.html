@@ -480,73 +480,83 @@ frontend-8e7f6d5c4-q3w      1/1     Running   0
             </div>
             
             <div class="publications-grid">
-                <!-- Publication Column -->
-                <div class="publication-column">
-                    <!-- Publication 1 -->
-                    <div class="publication-card" style="margin-bottom: var(--space-6);">
-                        <div class="pub-header">
-                            <span class="pub-type">Technical Article</span>
-                            <span class="pub-date">2024</span>
-                        </div>
-                        <h3 class="pub-title">An easier way to optimize Kubernetes resources for PHP application</h3>
-                        <p class="pub-summary">
-                            Published on Medium (SCMP Inside the Wonton), this article explores efficient strategies for fine-tuning 
-                            Kubernetes resource limits and requests specifically for PHP-based workloads to improve performance 
-                            and cost-efficiency.
-                        </p>
-                        <a href="https://medium.com/scmp-inside-the-wonton/an-easier-way-to-optimize-kubernetes-resources-for-php-application-2615a01aeb22" target="_blank" rel="noopener" class="pub-link">
-                            <span>Read Article</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
+                <!-- SCMP Section -->
+                <div class="company-section">
+                    <div class="company-header" style="text-align: center; margin-bottom: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border);">
+                        <img src="images/scmp-logo.png" alt="SCMP Logo" style="height: 80px; width: auto; object-fit: contain;">
+                        <h3 style="margin-top: var(--space-3); font-size: var(--text-lg); color: var(--color-text-secondary);">South China Morning Post</h3>
                     </div>
+                    
+                    <div class="company-items" style="display: flex; flex-direction: column; gap: var(--space-6);">
+                        <!-- SCMP Article -->
+                        <div class="company-item-card" style="background: var(--color-bg-card); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xl); padding: var(--space-5);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
+                                <span style="font-size: var(--text-xs); text-transform: uppercase; font-weight: 600; color: var(--color-accent-light); background: rgba(99, 102, 241, 0.1); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);">Technical Article</span>
+                                <span style="font-size: var(--text-sm); color: var(--color-text-muted);">2024</span>
+                            </div>
+                            <h4 style="font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3);">An easier way to optimize Kubernetes resources for PHP application</h4>
+                            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-4); line-height: 1.6;">
+                                Published on Medium (SCMP Inside the Wonton). Explores efficient strategies for fine-tuning Kubernetes resource limits for PHP workloads.
+                            </p>
+                            <a href="https://medium.com/scmp-inside-the-wonton/an-easier-way-to-optimize-kubernetes-resources-for-php-application-2615a01aeb22" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-accent-light); font-weight: 600; text-decoration: none; font-size: var(--text-sm);">
+                                <span>Read Article</span>
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
 
-                    <!-- Publication 2: Presentation -->
-                    <div class="publication-card">
-                        <div class="pub-header">
-                            <span class="pub-type">Presentation</span>
-                            <span class="pub-date">2025</span>
+                        <!-- SCMP Value Hero -->
+                        <div class="company-item-card" style="background: var(--color-bg-card); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xl); padding: var(--space-5);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
+                                <span style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-lg);">🏆</span>
+                                <span style="font-size: var(--text-sm); color: var(--color-text-muted);">2024</span>
+                            </div>
+                            <h4 style="font-size: var(--text-lg); font-weight: 600;">Value Hero in SCMP</h4>
+                            <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-2); line-height: 1.6;">
+                                Awarded for demonstrating exceptional value and contribution to SCMP through engineering excellence and impactful DevOps implementations.
+                            </p>
                         </div>
-                        <div class="pub-image" style="margin-bottom: var(--space-4); border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border-subtle); width: 50%;">
-                            <img src="images/cathay-presentation-2025.jpg" alt="GitHub Migration Sharing at Cathay Pacific" style="width: 100%; height: auto; display: block;">
+
+                        <!-- SCMP Hackathon -->
+                        <div class="company-item-card" style="background: var(--color-bg-card); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xl); overflow: hidden;">
+                            <div style="padding: var(--space-5);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
+                                    <span style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-lg);">🏅</span>
+                                    <span style="font-size: var(--text-sm); color: var(--color-text-muted);">2019</span>
+                                </div>
+                                <h4 style="font-size: var(--text-lg); font-weight: 600;">Winner of Hackathon in SCMP</h4>
+                                <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-2); line-height: 1.6;">
+                                    Recognized as the winner of the SCMP Internal Hackathon, showcasing innovation and rapid prototyping skills.
+                                </p>
+                            </div>
+                            <img src="images/hackathon-2019.jpg" alt="Hackathon Winner 2019" style="width: 100%; height: auto; display: block;">
                         </div>
-                        <h3 class="pub-title">GitHub Migration Project sharing in Cathay Pacific</h3>
-                        <p class="pub-summary">
-                            Shared insights and best practices from a large-scale enterprise GitHub migration project at Cathay Pacific. 
-                            Focused on migration automation, developer onboarding, and maintaining CI/CD continuity during the transition.
-                        </p>
                     </div>
                 </div>
 
-                <!-- Awards Column -->
-                <div class="awards-column" style="display: flex; flex-direction: column; gap: var(--space-6);">
-                    <!-- Award 1 -->
-                    <div class="award-card">
-                        <div class="award-header">
-                            <span class="award-icon">🏆</span>
-                            <span class="award-year">2024</span>
-                        </div>
-                        <h3 class="award-title">Value Hero in SCMP</h3>
-                        <p class="award-description">
-                            Awarded for demonstrating exceptional value and contribution to South China Morning Post (SCMP) 
-                            through engineering excellence and impactful DevOps implementations.
-                        </p>
+                <!-- Cathay Pacific Section -->
+                <div class="company-section">
+                    <div class="company-header" style="text-align: center; margin-bottom: var(--space-6); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border);">
+                        <img src="images/cathay-pacific-logo.svg" alt="Cathay Pacific Logo" style="height: 80px; width: auto; object-fit: contain;">
+                        <h3 style="margin-top: var(--space-3); font-size: var(--text-lg); color: var(--color-text-secondary);">Cathay Pacific</h3>
                     </div>
-
-                    <!-- Award 2 -->
-                    <div class="award-card">
-                        <div class="award-header">
-                            <span class="award-icon">🏅</span>
-                            <span class="award-year">2019</span>
+                    
+                    <div class="company-items" style="display: flex; flex-direction: column; gap: var(--space-6);">
+                        <!-- Cathay Pacific Presentation -->
+                        <div class="company-item-card" style="background: var(--color-bg-card); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xl); overflow: hidden;">
+                            <div style="padding: var(--space-5);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-3);">
+                                    <span style="font-size: var(--text-xs); text-transform: uppercase; font-weight: 600; color: var(--color-accent-light); background: rgba(99, 102, 241, 0.1); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full);">Presentation</span>
+                                    <span style="font-size: var(--text-sm); color: var(--color-text-muted);">2025</span>
+                                </div>
+                                <h4 style="font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-3);">GitHub Migration Project sharing in Cathay Pacific</h4>
+                                <p style="font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.6;">
+                                    Shared insights and best practices from a large-scale enterprise GitHub migration project. Focused on migration automation, developer onboarding, and CI/CD continuity.
+                                </p>
+                            </div>
+                            <img src="images/cathay-presentation-2025.jpg" alt="GitHub Migration Sharing at Cathay Pacific" style="width: 100%; height: 250px; object-fit: cover; display: block;">
                         </div>
-                        <div class="award-image" style="margin-bottom: var(--space-4); border-radius: var(--radius-md); overflow: hidden; height: 140px; border: 1px solid var(--color-border-subtle);">
-                            <img src="images/hackathon-2019.jpg" alt="Hackathon Winner 2019" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9);">
-                        </div>
-                        <h3 class="award-title">Winner of Hackathon in SCMP</h3>
-                        <p class="award-description">
-                            Recognized as the winner of the SCMP Internal Hackathon, showcasing innovation and rapid prototyping.
-                        </p>
                     </div>
                 </div>
             </div>
