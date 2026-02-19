@@ -41,15 +41,15 @@
                 <span class="section-tag">Infrastructure</span>
                 <h1 class="section-title">Kubernetes Components</h1>
                 <p class="section-description">
-                    A complete view of the system tools, CNCF projects, and components 
-                    I deploy and manage in production Kubernetes clusters.
+                    The pieces that make up a production K8s cluster — from OpenShift to raw Kubernetes, 
+                    plus monitoring, service mesh, secrets, GitOps controllers. The usual suspects from the CNCF ecosystem.
                 </p>
             </div>
             
             <div class="hero-stats">
                 <div class="stat-box">
                     <span class="stat-icon">☸️</span>
-                    <span class="stat-value">30+</span>
+                    <span class="stat-value">34+</span>
                     <span class="stat-label">Components</span>
                 </div>
                 <div class="stat-box">
@@ -70,6 +70,35 @@
     <section class="components-section">
         <div class="container">
             
+            <!-- Container Platforms -->
+            <div class="component-category">
+                <div class="category-header">
+                    <span class="category-icon">☸️</span>
+                    <div class="category-info">
+                        <h2>Container Platforms</h2>
+                        <p>Enterprise Kubernetes and container orchestration</p>
+                    </div>
+                </div>
+                <div class="component-grid">
+                    <div class="component-card featured">
+                        <div class="component-logo">☸️</div>
+                        <div class="component-info">
+                            <h3>Kubernetes</h3>
+                            <span class="component-badge cncf">CNCF Graduated</span>
+                        </div>
+                        <p class="container-desc">Production-grade container orchestration. The foundation of modern cloud-native infrastructure.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🔴</div>
+                        <div class="component-info">
+                            <h3>OpenShift (OCP)</h3>
+                            <span class="component-badge">Red Hat</span>
+                        </div>
+                        <p class="component-desc">Enterprise Kubernetes platform by Red Hat. Built-in CI/CD, security, and developer experience.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- GitOps & Deployment -->
             <div class="component-category">
                 <div class="category-header">
@@ -88,7 +117,7 @@
                             <h3>ArgoCD</h3>
                             <span class="component-badge cncf">CNCF</span>
                         </div>
-                        <p class="component-desc">GitOps continuous delivery for Kubernetes. Syncs cluster state from Git repositories.</p>
+                        <p class="component-desc">GitOps tool that watches your repos and automatically syncs cluster state. Push to Git, it deploys. Simple.</p>
                         <div class="component-features">
                             <span>Auto-sync</span>
                             <span>Health monitoring</span>
@@ -316,6 +345,22 @@
                         </div>
                         <p class="component-desc">Simple overlay network for Kubernetes pod networking.</p>
                     </div>
+                    <div class="component-card">
+                        <div class="component-logo">🦍</div>
+                        <div class="component-info">
+                            <h3>Kong</h3>
+                            <span class="component-badge">API Gateway</span>
+                        </div>
+                        <p class="component-desc">Cloud-native API gateway and service mesh. OAuth2, rate limiting, transformations.</p>
+                    </div>
+                    <div class="component-card">
+                        <div class="component-logo">🚀</div>
+                        <div class="component-info">
+                            <h3>Emissary-Ingress</h3>
+                            <span class="component-badge cncf">CNCF Sandbox</span>
+                        </div>
+                        <p class="component-desc">Kubernetes-native API gateway built on Envoy. Declarative config, gRPC support.</p>
+                    </div>
                 </div>
             </div>
 
@@ -540,7 +585,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Chris Ng. Built with passion for infrastructure.</p>
+            <p>&copy; 2024 Chris Ng. Infrastructure that works so you don't have to think about it.</p>
         </div>
     </footer>
 
