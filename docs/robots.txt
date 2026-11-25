@@ -1,0 +1,50 @@
+# robots.txt for https://chris-ng-1987.github.io/portfolio/
+# Everything on this site is public. Search engines, AI answer engines and
+# AI agents are welcome to crawl and cite it.
+
+User-agent: *
+Allow: /
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# AI answer engines (citability in ChatGPT, Claude, Perplexity, Gemini)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI training crawlers (public portfolio, allowed deliberately)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://chris-ng-1987.github.io/portfolio/sitemap.xml

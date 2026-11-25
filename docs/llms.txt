@@ -1,0 +1,26 @@
+# Chris Ng — DevOps Portfolio
+
+> Portfolio of Chris Ng, a DevOps Lead and System Architect specializing in Kubernetes, GitOps, CI/CD pipelines, platform engineering, and production cloud infrastructure.
+
+## Core pages
+
+- [Home](https://chris-ng-1987.github.io/portfolio/): Profile, featured projects, technical skills, publications, awards, and contact links.
+- [DevOps Lifecycle](https://chris-ng-1987.github.io/portfolio/devops-lifecycle.html): The CNCF-oriented toolchain used across plan, code, build, test, release, deploy, operate, and monitor.
+- [DevOps Workflow](https://chris-ng-1987.github.io/portfolio/workflow.html): End-to-end workflow for application teams, from git push to production with GitOps.
+- [CI/CD Pipeline](https://chris-ng-1987.github.io/portfolio/pipeline.html): Pipeline architecture with reusable GitLab CI templates, multi-environment deployments, and quality gates.
+- [ArgoCD GitOps](https://chris-ng-1987.github.io/portfolio/argocd.html): Declarative multi-cluster, multi-environment continuous delivery with ArgoCD.
+- [Kubernetes Components](https://chris-ng-1987.github.io/portfolio/k8s-components.html): Production Kubernetes platform components across monitoring, service mesh, security, storage, and GitOps.
+
+## Open source
+
+- [rancher-huawei-fusioncompute-node-provider](https://github.com/chris-ng-1987/rancher-huawei-fusioncompute-node-provider): Apache-2.0 Rancher node driver and Vue 3 UI extension for provisioning Kubernetes nodes on Huawei FusionCompute.
+
+## Written work
+
+- [An easier way to optimize Kubernetes resources for PHP application](https://medium.com/scmp-inside-the-wonton/an-easier-way-to-optimize-kubernetes-resources-for-php-application-2615a01aeb22): SCMP Inside the Wonton technical article (2024).
+
+## Contact
+
+- GitHub: https://github.com/chris-ng-1987
+- LinkedIn: https://www.linkedin.com/in/chris-ng-1987
+- Email: chris@frwonline.com

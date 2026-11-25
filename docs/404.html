@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Chris Ng</title>
+    <meta name="description" content="The requested page could not be found. Browse the portfolio of Chris Ng, DevOps Lead and System Architect.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#0a0a0f">
+    <link rel="icon" href="/portfolio/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/portfolio/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="/portfolio/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/portfolio/styles.css">
+    <style>
+        .notfound {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            padding: 120px 0 var(--space-16);
+            text-align: center;
+        }
+        .notfound .section-description {
+            margin-bottom: var(--space-8);
+        }
+        .notfound .hero-cta {
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/portfolio/" class="nav-logo">
+                <span class="logo-icon">⎈</span>
+                <span class="logo-text">chris.ng</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/portfolio/">Home</a></li>
+                <li><a href="/portfolio/#projects">Projects</a></li>
+                <li><a href="/portfolio/#skills">Skills</a></li>
+                <li><a href="/portfolio/#publications">Publications</a></li>
+                <li><a href="/portfolio/#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" class="notfound">
+        <div class="container">
+            <span class="section-tag">404</span>
+            <h1 class="section-title">Page not found</h1>
+            <p class="section-description">
+                The page you requested doesn't exist or has moved. Head back to the portfolio
+                to explore projects, the DevOps toolchain, and published work.
+            </p>
+            <div class="hero-cta">
+                <a href="/portfolio/" class="btn btn-primary">Back to the portfolio</a>
+                <a href="https://github.com/chris-ng-1987" target="_blank" rel="me noopener" class="btn btn-secondary">GitHub</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Chris Ng. Infrastructure that works so you don't have to think about it.</p>
+        </div>
+    </footer>
+</body>
+</html>
