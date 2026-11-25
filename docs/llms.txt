@@ -9,7 +9,7 @@
 - [DevOps Workflow](https://chris-ng-1987.github.io/portfolio/workflow.html): End-to-end workflow for application teams, from git push to production with GitOps.
 - [CI/CD Pipeline](https://chris-ng-1987.github.io/portfolio/pipeline.html): Pipeline architecture with reusable GitLab CI templates, multi-environment deployments, and quality gates.
 - [ArgoCD GitOps](https://chris-ng-1987.github.io/portfolio/argocd.html): Declarative multi-cluster, multi-environment continuous delivery with ArgoCD.
-- [Kubernetes Components](https://chris-ng-1987.github.io/portfolio/k8s-components.html): Production Kubernetes platform components across monitoring, service mesh, security, storage, and GitOps.
+- [Kubernetes Components](https://chris-ng-1987.github.io/portfolio/k8s-components.html): Production Kubernetes platforms and components I've operated — Rancher, RKE2, OpenShift — across monitoring, service mesh, security, storage, and GitOps.
 
 ## Open source
 
